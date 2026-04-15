@@ -4,9 +4,8 @@ export default function Home() {
       <nav className="fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center bg-[#131313]/90 backdrop-blur-md border-b border-[#49454e]/15">
         <div className="font-['Newsreader'] italic text-2xl text-[#e9c349]">Mundo Mágico</div>
         <div className="hidden md:flex items-center gap-10 font-['Newsreader'] tracking-wide uppercase text-sm">
-          <a className="text-[#e9c349] border-b border-[#e9c349] pb-1 hover:text-[#e9c349] transition-colors duration-300" href="#">Grimórios</a>
-          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="#">Artefactos</a>
-          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="#">Poções</a>
+          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#novidades">Novidades</a>
+          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/artefactos">Artefactos</a>
           <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/contactos">Contactos</a>
         </div>
         <div className="flex items-center gap-6">
@@ -70,14 +69,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-[#f5f5f5] py-24 text-surface">
+      <section id="novidades" className="bg-[#f5f5f5] py-24 text-surface">
         <div className="max-w-7xl mx-auto px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
             <div>
               <span className="font-label text-[10px] tracking-[0.3em] uppercase text-surface/40 block mb-2">Novidades</span>
-              <h2 className="font-headline text-5xl italic font-light">Explora os Nossos Novos Produtos</h2>
+              <h2 className="font-headline text-5xl italic font-light">Os Nossos Lançamentos</h2>
             </div>
-            <a className="font-label text-xs tracking-widest border-b border-surface/20 pb-1 hover:border-surface transition-colors" href="#">VER TODA A COLECÇÃO</a>
+            <a className="font-label text-[10px] tracking-widest border-b border-surface/20 pb-1 hover:border-surface transition-all uppercase" href="/artefactos">Explorar Coleção Completa</a>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="group">
@@ -94,6 +93,7 @@ export default function Home() {
             <div className="group">
               <div className="relative aspect-[3/4] overflow-hidden bg-white mb-6">
                 <img alt="Ritual 11 Mechas Caveira Vermelha" className="w-full h-full object-contain p-4 transition-transform duration-700 group-hover:scale-105" src="/images/WhatsApp Image 2026-03-30 at 17.39.14.jpeg"/>
+                <div className="absolute top-4 left-4 bg-primary px-3 py-1 text-[9px] font-label tracking-widest uppercase text-on-primary">Popular</div>
               </div>
               <div className="space-y-1">
                 <h3 className="font-headline text-xl italic">Ritual 11 Mechas Caveira Vermelha</h3>
@@ -124,6 +124,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
 
       <section className="py-32 px-8 bg-surface">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
@@ -159,6 +161,7 @@ export default function Home() {
           <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="#">Política de Privacidade</a>
           <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="#">Envios &amp; Devoluções</a>
           <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="#">Termos de Serviço</a>
+          <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="/artefactos">Artefactos</a>
           <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="/contactos">Contactos</a>
         </div>
         <div className="flex gap-6 mt-4">

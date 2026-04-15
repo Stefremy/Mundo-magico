@@ -12,9 +12,8 @@ export default function ContactosPage() {
       <nav className="fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center bg-[#131313]/90 backdrop-blur-md border-b border-[#49454e]/15">
         <a href="/" className="font-['Newsreader'] italic text-2xl text-[#e9c349]">Mundo Mágico</a>
         <div className="hidden md:flex items-center gap-10 font-['Newsreader'] tracking-wide uppercase text-sm">
-          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#grimorios">Grimórios</a>
+          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#novidades">Novidades</a>
           <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#artefactos">Artefactos</a>
-          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#pocoes">Poções</a>
           <a className="text-[#e9c349] border-b border-[#e9c349] pb-1 hover:text-[#e9c349] transition-colors duration-300" href="/contactos">Contactos</a>
         </div>
         <div className="flex items-center gap-6">
