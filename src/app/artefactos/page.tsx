@@ -1,9 +1,8 @@
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Artefactos Rituais | Mundo Mágico",
-  description: "Explora a nossa coleção sagrada de velas consagradas, banhos rituais e artefactos de poder.",
-};
+import ParallaxWrapper from "@/components/ParallaxWrapper";
+import ScrollReveal from "@/components/ScrollReveal";
+import { useEffect, useState } from "react";
 
 const products = [
   { id: 1, name: "Vela Ritual Vira Pensamento", desc: "Influência e Clareza Mental", price: "12,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.09.jpeg" },
@@ -28,6 +27,14 @@ const products = [
 ];
 
 export default function ArtefactosPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <nav className="fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center bg-[#131313]/90 backdrop-blur-md border-b border-[#49454e]/15">
@@ -43,29 +50,45 @@ export default function ArtefactosPage() {
         </div>
       </nav>
 
-      <main className="min-h-screen pt-32 pb-20 px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20 animate-in fade-in slide-in-from-top duration-1000">
-            <span className="font-label text-[10px] tracking-[0.4em] uppercase text-primary mb-4 block">Tesouros Consagrados</span>
-            <h1 className="font-headline text-5xl md:text-7xl italic text-on-surface text-glow">Artefactos de Ritual</h1>
-            <div className="w-24 h-px bg-primary/30 mx-auto mt-8"></div>
-          </div>
+      <main className="min-h-screen pt-32 pb-20 px-8 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div 
+          className="absolute top-20 right-0 text-primary/5 pointer-events-none"
+          style={{ transform: `translateY(${scrollY * 0.15}px) rotate(${scrollY * -0.01}deg)` }}
+        >
+          <span className="material-symbols-outlined text-[400px]" data-icon="brightness_7">brightness_7</span>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <ScrollReveal direction="down">
+            <div className="text-center mb-20">
+              <span className="font-label text-[10px] tracking-[0.4em] uppercase text-primary mb-4 block">Tesouros Consagrados</span>
+              <h1 className="font-headline text-5xl md:text-7xl italic text-on-surface text-glow">Artefactos de Ritual</h1>
+              <div className="w-24 h-px bg-primary/30 mx-auto mt-8"></div>
+            </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-            {products.map((product) => (
-              <div key={product.id} className="group">
-                <div className="relative aspect-[3/4] overflow-hidden bg-white mb-6 border border-primary/5">
-                  <img alt={product.name} className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-105" src={product.img}/>
+            {products.map((product, i) => (
+              <ScrollReveal key={product.id} delay={(i % 4) * 100} direction="up">
+                <div className="group">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-white mb-6 border border-primary/5">
+                    <img 
+                      alt={product.name} 
+                      className="w-full h-full object-contain p-6 transition-transform duration-700 group-hover:scale-110" 
+                      src={product.img}
+                    />
+                  </div>
+                  <div className="space-y-1 px-2">
+                    <h3 className="font-headline text-xl italic text-on-surface">{product.name}</h3>
+                    <p className="font-label text-[10px] tracking-widest uppercase text-on-surface/50">{product.desc}</p>
+                    <p className="font-body text-sm font-bold pt-2 text-primary">{product.price}</p>
+                    <p className="font-body text-[11px] text-on-surface/40 leading-relaxed pt-2 italic">
+                      Utilize este artefacto com intenção pura e respeito pelas leis universais. Todos os nossos produtos são consagrados segundo tradições ancestrais.
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-1 px-2">
-                  <h3 className="font-headline text-xl italic text-on-surface">{product.name}</h3>
-                  <p className="font-label text-[10px] tracking-widest uppercase text-on-surface/50">{product.desc}</p>
-                  <p className="font-body text-sm font-bold pt-2 text-primary">{product.price}</p>
-                  <p className="font-body text-[11px] text-on-surface/40 leading-relaxed pt-2 italic">
-                    Utilize este artefacto com intenção pura e respeito pelas leis universais. Todos os nossos produtos são consagrados segundo tradições ancestrais.
-                  </p>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -86,3 +109,4 @@ export default function ArtefactosPage() {
     </>
   );
 }
+
