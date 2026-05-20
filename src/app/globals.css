@@ -7,16 +7,16 @@
   ============================================================ */
 
   /* -- Surfaces (warm shadowed darks, never flat black) -------- */
-  --color-base:       #0E0B0A;   /* primary canvas */
-  --color-base-alt:   #161210;   /* secondary bg */
-  --color-surface:    #1D1815;   /* card / panel surfaces */
-  --color-surface-hi: #26201C;   /* elevated surface */
-  --color-surface-xhi:#2F2824;   /* tooltip / popover */
+  --color-base:       #181310;   /* primary canvas — lifted from pure black */
+  --color-base-alt:   #201A17;   /* secondary bg */
+  --color-surface:    #272018;   /* card / panel surfaces */
+  --color-surface-hi: #302820;   /* elevated surface */
+  --color-surface-xhi:#3A302A;   /* tooltip / popover */
 
   /* -- Text (aged ivory scale) --------------------------------- */
-  --color-text:       #E8DED2;   /* primary text */
-  --color-text-muted: #B9AA9A;   /* body, secondary */
-  --color-text-faint: #7E7065;   /* captions, metadata */
+  --color-text:       #EDE4D8;   /* primary text — slightly warmer */
+  --color-text-muted: #C8BAA8;   /* body copy — brighter for readability */
+  --color-text-faint: #9A8C7E;   /* captions, metadata — lifted */
 
   /* -- Bronze accent (main) ------------------------------------ */
   --color-accent:     #8C6A3B;
@@ -42,29 +42,53 @@
   --color-primary:               #8C6A3B;
   --color-on-primary:            #0E0B0A;
   --color-secondary:             #4E5A46;
-  --color-background:            #0E0B0A;
-  --color-on-surface:            #E8DED2;
-  --color-on-surface-variant:    #B9AA9A;
-  --color-outline-variant:       rgba(232, 222, 210, 0.10);
+  --color-background:            #181310;
+  --color-on-surface:            #EDE4D8;
+  --color-on-surface-variant:    #C8BAA8;
+  --color-outline-variant:       rgba(237, 228, 216, 0.10);
 }
 
 /* ============================================================
    BASE
 ============================================================ */
 @layer base {
+  /* ── Semantic tokens (consumed by utility classes below) ─── */
+  :root {
+    --bg-main:        #181310;
+    --bg-warm:        #EDE4D8;
+    --surface-dark:   #201A17;
+    --text-main:      #EDE4D8;
+    --text-sub:       #C8BAA8;
+    --text-muted:     #9A8C7E;
+    --accent:         #8C6A3B;
+    --accent-hi:      #A47A43;
+    --border-soft:    rgba(237, 228, 216, 0.14);
+    --hover-overlay:  rgba(140, 106, 59, 0.10);
+  }
+
   html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 17px; /* bumped from 16px — everything scales up proportionally */
   }
 
   body {
-    background-color: #0E0B0A;
-    color: #E8DED2;
+    background: var(--bg-main);
+    color: var(--text-main);
     font-family: var(--font-sans);
-    line-height: 1.65;
+    line-height: 1.72;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-weight: 300;
+  }
+
+  a,
+  .text-link {
+    color: var(--text-main);
+    transition: color .4s ease, background-color .4s ease, border-color .4s ease;
+  }
+  a:hover,
+  .text-link:hover {
+    color: var(--accent);
   }
 
   /* Bronze focus ring — accessible and on-brand */
@@ -82,8 +106,8 @@
 
   /* Selection */
   ::selection {
-    background-color: rgba(140, 106, 59, 0.25);
-    color: #E8DED2;
+    background-color: rgba(140, 106, 59, 0.28);
+    color: #EDE4D8;
   }
 }
 
@@ -116,19 +140,20 @@
   /* Archive label — eyebrow / metadata */
   .text-label {
     font-family: var(--font-sans);
-    font-size: 0.625rem;
+    font-size: 0.7rem;       /* was 0.625rem */
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: #7E7065;
+    color: var(--text-muted);
   }
 
   /* Body text */
   .text-body {
     font-family: var(--font-sans);
+    font-size: 1rem;         /* explicit — scales with 17px root */
     font-weight: 300;
-    line-height: 1.75;
-    color: #B9AA9A;
+    line-height: 1.80;
+    color: var(--text-sub);  /* #C8BAA8 — brighter than old #B9AA9A */
   }
 
   /* --- Surfaces --- */
@@ -268,11 +293,11 @@
   /* --- Archive eyebrow label --- */
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.625rem;
+    font-size: 0.7rem;       /* was 0.625rem */
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #7E7065;
+    color: var(--text-muted);
     display: block;
     margin-bottom: 1.25rem;
   }
@@ -280,11 +305,11 @@
   /* Bronze tinted eyebrow */
   .eyebrow-accent {
     font-family: var(--font-sans);
-    font-size: 0.625rem;
+    font-size: 0.7rem;       /* was 0.625rem */
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: #8C6A3B;
+    color: var(--accent);
     display: block;
     margin-bottom: 1.25rem;
   }
@@ -319,5 +344,28 @@
     font-weight: 400;
     font-style: italic;
     color: #8C6A3B;
+  }
+
+  /* --- Nav / outline buttons ---------------------------------- */
+  .nav-button,
+  .outline-button {
+    border: 1px solid var(--border-soft);
+    color: var(--text-main);
+    background: transparent;
+    transition: all .4s ease;
+  }
+  .nav-button:hover,
+  .outline-button:hover {
+    background: var(--hover-overlay);
+    border-color: var(--accent);
+  }
+
+  /* --- Dark section (inverted feel on lighter bg) ------------- */
+  .dark-section {
+    background: var(--surface-dark);
+    color: var(--bg-warm);
+  }
+  .dark-section a:hover {
+    color: var(--accent);
   }
 }
