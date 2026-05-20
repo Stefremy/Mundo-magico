@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
+import SiteNav from "@/components/SiteNav";
+import SiteFooter from "@/components/SiteFooter";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -61,11 +63,12 @@ export default function RootLayout({
       lang="pt"
       className={`${cormorant.variable} ${manrope.variable} antialiased`}
     >
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap" rel="stylesheet" />
-      </head>
       <body className="bg-[#0E0B0A] text-[#E8DED2] min-h-screen selection:bg-[#8C6A3B]/30 selection:text-[#E8DED2]">
-        {children}
+        <SiteNav />
+        <main className="pt-[58px]">
+          {children}
+        </main>
+        <SiteFooter />
       </body>
     </html>
   );

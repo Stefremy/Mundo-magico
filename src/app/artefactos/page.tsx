@@ -34,31 +34,9 @@ export default function ArtefactosPage() {
 
   return (
     <>
-      {/* ── NAV ───────────────────────────────────────────────────── */}
-      <nav
-        className="fixed top-0 z-50 w-full px-8 md:px-16 py-6 flex justify-between items-center bg-[#0E0B0A]/92 backdrop-blur-xl border-b border-[rgba(232,222,210,0.07)]"
-        aria-label="Navegação principal"
-      >
-        <Link
-          href="/"
-          aria-label="Mundo Mágico — Início"
-          className="font-serif italic text-xl text-[#E8DED2] tracking-wide hover:text-[#8C6A3B] transition-colors duration-400"
-        >
-          Mundo Mágico
-        </Link>
-        <div className="hidden md:flex items-center gap-12">
-          <Link className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300" href="/#novidades">Novidades</Link>
-          <Link className="text-label text-[#8C6A3B]" href="/artefactos">Artefactos</Link>
-          <Link className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300" href="/servicos">Serviços</Link>
-          <Link className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300" href="/contactos">Contactos</Link>
-        </div>
-        <button aria-label="Carrinho" className="material-symbols-outlined text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300 text-[20px]">
-          shopping_bag
-        </button>
-      </nav>
 
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
-      <header className="pt-48 pb-16 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
+      <header className="pt-24 pb-16 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
         <div className="max-w-7xl mx-auto">
           <ScrollReveal direction="up" delay={100}>
             <span className="eyebrow">Tesouros Consagrados</span>
@@ -140,36 +118,6 @@ export default function ArtefactosPage() {
           </ScrollReveal>
         </section>
       </main>
-
-      {/* ── FOOTER ───────────────────────────────────────────────────── */}
-      <footer className="bg-[#0E0B0A] border-t border-[rgba(232,222,210,0.08)] pt-16 pb-10 px-8 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
-            <div className="max-w-xs">
-              <Link href="/" className="font-serif italic text-xl text-[#E8DED2] block mb-4">
-                Mundo Mágico
-              </Link>
-              <p className="text-body text-sm text-[#7E7065] leading-relaxed">
-                Loja esotérica portuguesa. Artefactos rituais, leituras de tarot e serviços
-                espirituais desde o coração de Portugal.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-x-20 gap-y-3">
-              <Link href="/artefactos" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Artefactos</Link>
-              <Link href="/servicos" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Serviços</Link>
-              <Link href="/contactos" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Contactos</Link>
-              <a href="#" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Privacidade</a>
-              <a href="#" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Envios</a>
-              <a href="#" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Termos</a>
-            </div>
-          </div>
-          <div className="divider mb-8" />
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-label text-[#7E7065]">&copy; 2026 Mundo Mágico. Todos os direitos reservados.</p>
-            <p className="text-label text-[#7E7065]">Portugal</p>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }
