@@ -80,7 +80,10 @@ export default function StickyServices() {
       aria-label="Os nossos servicos"
     >
       {/* Sticky viewport frame */}
-      <div className="sticky h-screen w-full overflow-hidden flex items-center z-10" style={{ top: "58px" }}>
+      <div
+        className="sticky w-full overflow-hidden flex items-center z-10"
+        style={{ top: "58px", height: "calc(100vh - 58px)" }}
+      >
         {/* Left -- static glyph + label */}
         <div className="hidden md:flex flex-col items-center justify-center w-24 lg:w-32 h-full border-r border-[rgba(232,222,210,0.07)] shrink-0">
           <span className="font-serif italic text-[#8C6A3B] text-5xl select-none" aria-hidden="true">
