@@ -202,27 +202,28 @@
 
   /* --- Buttons --- */
 
-  /* Bronze filled */
+  /* Bronze filled — light beige text for readability */
   .btn-bronze {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
     padding: 0.875rem 2rem;
-    background-color: #8C6A3B;
-    color: #0E0B0A;
+    background-color: #EDE4D8;
+    color: #181310;
     font-family: var(--font-sans);
     font-size: 0.6875rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    border: 1px solid #8C6A3B;
+    border: 1px solid #EDE4D8;
     cursor: pointer;
-    transition: background-color 400ms ease, border-color 400ms ease;
+    transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease;
   }
   .btn-bronze:hover {
-    background-color: #A47A43;
-    border-color: #A47A43;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    color: #181310;
   }
 
   /* Ghost bronze outline */

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function SiteNav() {
   return (
-    <nav className="fixed top-0 z-50 w-full bg-[#110E0D]/95 backdrop-blur-md border-b border-[rgba(232,222,210,0.08)] flex items-stretch h-[58px]">
+    <nav className="fixed top-0 z-50 w-full bg-[#2A2118]/80 backdrop-blur-lg border-b border-[rgba(232,222,210,0.10)] flex items-stretch h-[58px]">
 
       {/* Brand */}
       <Link
@@ -47,10 +47,10 @@ export default function SiteNav() {
 
         <Link
           href="/servicos"
-          className="hidden md:flex items-center gap-3 px-6 border-l border-[rgba(232,222,210,0.08)] bg-transparent hover:bg-[#8C6A3B] text-[#E8DED2] text-label tracking-widest transition-all duration-300 group"
+          className="hidden md:flex items-center gap-3 px-6 border-l border-[rgba(232,222,210,0.08)] bg-[#4E5A46] hover:bg-[#5C6B54] text-[#EDE4D8] text-label tracking-widest transition-all duration-300 group"
         >
           CONSULTAR
-          <span className="flex items-center justify-center w-6 h-6 border border-[rgba(232,222,210,0.3)] group-hover:border-[#E8DED2] transition-colors duration-300">
+          <span className="flex items-center justify-center w-6 h-6 bg-[rgba(0,0,0,0.20)] group-hover:bg-[rgba(0,0,0,0.30)] transition-colors duration-300">
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

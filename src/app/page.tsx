@@ -65,10 +65,11 @@ export default function Home() {
         >
           <Image
             alt=""
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUDsBxcsY8z7f4UBiPanHfmoLVtaN418LKhJ4Bw1F0SyZEefDifweOjQvnDfOTzTsfdpY_EwfAv2sljENlg3Np_eBEfXY9bb5d8Yd91nWEK8VCrI1Ms4xuWlJ8-KwIyct2QPIMjHogjJqn3T9jundJ71tEh_1a2hTBtYwb_wHpLjv9CLim1Nz31re00PY9lJw77pt0Lp0fwTwTsxDKImC9wDJomGYdBrn9PDmpzfWFLlJdUXU3NlteWXLHl197m2O_P-8mpyMNXCt"
+            src="/images/enchanted-forest-lights-stockcake.webp"
             fill
             priority
-            className="object-cover img-cinematic scale-105"
+            className="object-cover scale-105"
+            style={{ filter: "brightness(0.72) saturate(1.1)" }}
           />
         </div>
 
@@ -77,7 +78,7 @@ export default function Home() {
           className="absolute inset-0 z-0"
           style={{
             background:
-              "linear-gradient(to top, #0E0B0A 0%, rgba(14,11,10,0.88) 30%, rgba(14,11,10,0.45) 65%, rgba(14,11,10,0.15) 100%)",
+              "linear-gradient(to top, #181310 0%, rgba(24,19,16,0.80) 28%, rgba(24,19,16,0.30) 60%, rgba(24,19,16,0.05) 100%)",
           }}
           aria-hidden="true"
         />
@@ -96,7 +97,7 @@ export default function Home() {
           <ScrollReveal direction="up" delay={380}>
             <h1 className="text-display text-[clamp(3rem,8vw,7rem)] text-[#E8DED2] mb-8 leading-[1.02]">
               O segredo que<br />
-              <em className="text-[#8C6A3B]">sempre soubeste</em><br />
+              <em>sempre soubeste</em><br />
               existir.
             </h1>
           </ScrollReveal>
