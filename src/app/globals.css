@@ -1,79 +1,323 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-on-tertiary-fixed: #191b29;
-  --color-surface-container: #201f1f;
-  --color-primary-fixed: #ffe088;
-  --color-on-primary-fixed-variant: #574500;
-  --color-on-secondary-container: #dcb7ff;
-  --color-surface-container-highest: #353534;
-  --color-tertiary: #c5c5d8;
-  --color-primary: #e9c349;
-  --color-on-tertiary-container: #8a8b9d;
-  --color-surface-bright: #3a3939;
-  --color-surface-container-high: #2a2a2a;
-  --color-tertiary-fixed: #e1e1f5;
-  --color-on-error-container: #ffdad6;
-  --color-on-primary-container: #aa890a;
-  --color-on-secondary-fixed: #2c0051;
-  --color-on-tertiary-fixed-variant: #444655;
-  --color-on-surface: #e5e2e1;
-  --color-tertiary-fixed-dim: #c5c5d8;
-  --color-surface: #131313;
-  --color-surface-tint: #e9c349;
-  --color-on-secondary: #480081;
-  --color-secondary-fixed-dim: #dcb8ff;
-  --color-error-container: #93000a;
-  --color-surface-variant: #353534;
-  --color-primary-fixed-dim: #e9c349;
-  --color-on-primary-fixed: #241a00;
-  --color-surface-dim: #131313;
-  --color-on-tertiary: #2e2f3e;
-  --color-primary-container: #2f2400;
-  --color-tertiary-container: #222433;
-  --color-surface-container-lowest: #0e0e0e;
-  --color-on-surface-variant: #cbc4cf;
-  --color-secondary: #dcb8ff;
-  --color-on-secondary-fixed-variant: #6700b5;
-  --color-on-primary: #3c2f00;
-  --color-inverse-surface: #e5e2e1;
-  --color-on-error: #690005;
-  --color-inverse-primary: #735c00;
-  --color-surface-container-low: #1c1b1b;
-  --color-background: #131313;
-  --color-error: #ffb4ab;
-  --color-outline: #948e99;
-  --color-secondary-fixed: #efdbff;
-  --color-on-background: #e5e2e1;
-  --color-outline-variant: #49454e;
-  --color-secondary-container: #7701d0;
-  --color-inverse-on-surface: #313030;
-  
-  --font-headline: var(--font-newsreader);
-  --font-body: var(--font-manrope);
-  --font-label: var(--font-work-sans);
-  --font-decorative: var(--font-cinzel-decorative);
+  /* ============================================================
+     MUNDO MÁGICO — DESIGN SYSTEM v2
+     Occult archive · Ritual luxury · Dark editorial
+  ============================================================ */
+
+  /* -- Surfaces (warm shadowed darks, never flat black) -------- */
+  --color-base:       #0E0B0A;   /* primary canvas */
+  --color-base-alt:   #161210;   /* secondary bg */
+  --color-surface:    #1D1815;   /* card / panel surfaces */
+  --color-surface-hi: #26201C;   /* elevated surface */
+  --color-surface-xhi:#2F2824;   /* tooltip / popover */
+
+  /* -- Text (aged ivory scale) --------------------------------- */
+  --color-text:       #E8DED2;   /* primary text */
+  --color-text-muted: #B9AA9A;   /* body, secondary */
+  --color-text-faint: #7E7065;   /* captions, metadata */
+
+  /* -- Bronze accent (main) ------------------------------------ */
+  --color-accent:     #8C6A3B;
+  --color-accent-hi:  #A47A43;
+  --color-accent-lo:  #6B4E2D;
+
+  /* -- Olive accent (secondary, sparse) ------------------------ */
+  --color-olive:      #4E5A46;
+
+  /* -- Blood-wine accent (rare highlight only) ----------------- */
+  --color-wine:       #5C2B31;
+
+  /* -- Borders / dividers ------------------------------------- */
+  --color-border:     rgba(232, 222, 210, 0.10);
+  --color-border-hi:  rgba(232, 222, 210, 0.18);
+  --color-border-accent: rgba(140, 106, 59, 0.35);
+
+  /* -- Typography --------------------------------------------- */
+  --font-serif: var(--font-serif);   /* Cormorant Garamond */
+  --font-sans:  var(--font-sans);    /* Manrope */
+
+  /* Aliases kept for backwards compat with old Tailwind classes */
+  --color-primary:               #8C6A3B;
+  --color-on-primary:            #0E0B0A;
+  --color-secondary:             #4E5A46;
+  --color-background:            #0E0B0A;
+  --color-on-surface:            #E8DED2;
+  --color-on-surface-variant:    #B9AA9A;
+  --color-outline-variant:       rgba(232, 222, 210, 0.10);
 }
 
+/* ============================================================
+   BASE
+============================================================ */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #0E0B0A;
+    color: #E8DED2;
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+  }
+
+  /* Bronze focus ring — accessible and on-brand */
+  :focus-visible {
+    outline: 1px solid #8C6A3B;
+    outline-offset: 4px;
+  }
+
+  /* Material Symbols */
   .material-symbols-outlined {
-    font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+    font-variation-settings: "FILL" 0, "wght" 200, "GRAD" 0, "opsz" 24;
     display: inline-block;
     line-height: 1;
   }
+
+  /* Selection */
+  ::selection {
+    background-color: rgba(140, 106, 59, 0.25);
+    color: #E8DED2;
+  }
 }
 
+/* ============================================================
+   UTILITIES
+============================================================ */
 @layer utilities {
-  .glass-panel {
-    background: rgba(19, 19, 19, 0.7);
-    backdrop-filter: blur(20px);
-  }
-  .text-glow {
-    text-shadow: 0 0 15px rgba(233, 195, 73, 0.3);
-  }
-}
 
-body {
-  background-color: var(--color-surface);
-  color: var(--color-on-surface);
+  /* --- Typography utilities --- */
+  .font-serif  { font-family: var(--font-serif); }
+  .font-sans   { font-family: var(--font-sans); }
+
+  /* Ceremonial display — hero headlines */
+  .text-display {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+
+  /* Editorial heading — section titles */
+  .text-heading {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.15;
+  }
+
+  /* Archive label — eyebrow / metadata */
+  .text-label {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #7E7065;
+  }
+
+  /* Body text */
+  .text-body {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    line-height: 1.75;
+    color: #B9AA9A;
+  }
+
+  /* --- Surfaces --- */
+  .surface {
+    background-color: #1D1815;
+    border: 1px solid rgba(232, 222, 210, 0.10);
+  }
+  .surface-hi {
+    background-color: #26201C;
+    border: 1px solid rgba(232, 222, 210, 0.10);
+  }
+
+  /* Smoky panel — for overlays on hero images */
+  .smoke-panel {
+    background: rgba(14, 11, 10, 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(140, 106, 59, 0.15);
+  }
+
+  /* --- Navigation transparency → dark on scroll (JS adds .scrolled) --- */
+  .nav-bar {
+    background: transparent;
+    transition: background 600ms ease, border-color 600ms ease;
+  }
+  .nav-bar.scrolled {
+    background: rgba(14, 11, 10, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(232, 222, 210, 0.08);
+  }
+
+  /* --- Archive divider (thin horizontal rule) --- */
+  .divider {
+    border: none;
+    border-top: 1px solid rgba(232, 222, 210, 0.10);
+    width: 100%;
+  }
+
+  /* Bronze accent divider */
+  .divider-accent {
+    border: none;
+    border-top: 1px solid rgba(140, 106, 59, 0.35);
+    width: 3rem;
+  }
+
+  /* --- Buttons --- */
+
+  /* Bronze filled */
+  .btn-bronze {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem 2rem;
+    background-color: #8C6A3B;
+    color: #0E0B0A;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 1px solid #8C6A3B;
+    cursor: pointer;
+    transition: background-color 400ms ease, border-color 400ms ease;
+  }
+  .btn-bronze:hover {
+    background-color: #A47A43;
+    border-color: #A47A43;
+  }
+
+  /* Ghost bronze outline */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.875rem 2rem;
+    background: transparent;
+    color: #8C6A3B;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    border: 1px solid rgba(140, 106, 59, 0.55);
+    cursor: pointer;
+    transition: color 400ms ease, border-color 400ms ease, background 400ms ease;
+  }
+  .btn-ghost:hover {
+    color: #E8DED2;
+    border-color: rgba(140, 106, 59, 0.9);
+    background: rgba(140, 106, 59, 0.08);
+  }
+
+  /* Text link with animated underline */
+  .btn-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.25rem;
+    color: #8C6A3B;
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 300ms ease;
+  }
+  .btn-text:hover { color: #A47A43; }
+  .btn-text .arrow-line {
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    background-color: rgba(140, 106, 59, 0.45);
+    transition: width 500ms ease;
+  }
+  .btn-text:hover .arrow-line { width: 4.5rem; }
+
+  /* --- Image treatments --- */
+  .img-archival {
+    filter: sepia(20%) brightness(0.78) contrast(1.05);
+    transition: filter 800ms ease;
+  }
+  .img-archival:hover {
+    filter: sepia(10%) brightness(0.85) contrast(1.02);
+  }
+
+  /* Full desaturated for hero bg */
+  .img-cinematic {
+    filter: sepia(30%) brightness(0.55) contrast(1.1);
+  }
+
+  /* --- Archive eyebrow label --- */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #7E7065;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Bronze tinted eyebrow */
+  .eyebrow-accent {
+    font-family: var(--font-sans);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #8C6A3B;
+    display: block;
+    margin-bottom: 1.25rem;
+  }
+
+  /* --- Offset frame decorative effect (no drop shadow) --- */
+  .offset-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    translate: -20px -20px;
+    border: 1px solid rgba(140, 106, 59, 0.20);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* --- Scroll reveal base state --- */
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-hidden.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* --- Price tag --- */
+  .price-tag {
+    font-family: var(--font-serif);
+    font-size: 1.125rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #8C6A3B;
+  }
 }

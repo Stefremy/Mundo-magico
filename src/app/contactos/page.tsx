@@ -1,155 +1,257 @@
 "use client";
 
-import ParallaxWrapper from "@/components/ParallaxWrapper";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function ContactosPage() {
-  const [scrollY, setScrollY] = useState(0);
+  const [formState, setFormState] = useState({ name: "", email: "", message: "", submitted: false });
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    setFormState((s) => ({ ...s, submitted: true }));
+  }
 
   return (
     <>
-      {/* Navigation (Same as main page) */}
-      <nav className="fixed top-0 z-50 w-full px-8 py-4 flex justify-between items-center bg-[#131313]/90 backdrop-blur-md border-b border-[#49454e]/15">
-        <a href="/" className="font-['Newsreader'] italic text-2xl text-[#e9c349]">Mundo Mágico</a>
-        <div className="hidden md:flex items-center gap-10 font-['Newsreader'] tracking-wide uppercase text-sm">
-          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#novidades">Novidades</a>
-          <a className="text-[#e5e2e1]/70 hover:text-[#e9c349] transition-colors duration-300" href="/#artefactos">Artefactos</a>
-          <a className="text-[#e9c349] border-b border-[#e9c349] pb-1 hover:text-[#e9c349] transition-colors duration-300" href="/contactos">Contactos</a>
+      {/* ── NAV ───────────────────────────────────────────────────── */}
+      <nav
+        className="fixed top-0 z-50 w-full px-8 md:px-16 py-6 flex justify-between items-center bg-[#0E0B0A]/92 backdrop-blur-xl border-b border-[rgba(232,222,210,0.07)]"
+        aria-label="Navegação principal"
+      >
+        <Link
+          href="/"
+          aria-label="Mundo Mágico — Início"
+          className="font-serif italic text-xl text-[#E8DED2] tracking-wide hover:text-[#8C6A3B] transition-colors duration-400"
+        >
+          Mundo Mágico
+        </Link>
+        <div className="hidden md:flex items-center gap-12">
+          <Link className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300" href="/#novidades">Novidades</Link>
+          <Link className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300" href="/artefactos">Artefactos</Link>
+          <Link className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300" href="/servicos">Serviços</Link>
+          <Link className="text-label text-[#8C6A3B]" href="/contactos">Contactos</Link>
         </div>
-        <div className="flex items-center gap-6">
-          <button className="material-symbols-outlined text-[#e9c349] hover:scale-95 duration-200" data-icon="shopping_bag">shopping_bag</button>
-          <button className="material-symbols-outlined text-[#e9c349] hover:scale-95 duration-200" data-icon="person">person</button>
-        </div>
+        <button aria-label="Carrinho" className="material-symbols-outlined text-[#7E7065] hover:text-[#8C6A3B] transition-colors duration-300 text-[20px]">
+          shopping_bag
+        </button>
       </nav>
 
-      <main className="min-h-screen pt-32 pb-20 px-8 flex flex-col items-center relative overflow-hidden">
-        {/* Background Decorative Elements */}
-        <div 
-          className="absolute top-40 -left-20 text-primary/5 pointer-events-none"
-          style={{ transform: `translateY(${scrollY * 0.2}px) rotate(${scrollY * 0.02}deg)` }}
-        >
-          <span className="material-symbols-outlined text-[300px]" data-icon="auto_awesome">auto_awesome</span>
-        </div>
-
-        {/* Hero-like Title */}
-        <div className="text-center mb-16 relative z-10">
-          <ScrollReveal direction="down">
-            <span className="font-label text-[10px] tracking-[0.4em] uppercase text-primary mb-4 block">Conecta-te Connosco</span>
-            <h1 className="font-decorative text-5xl md:text-7xl text-primary tracking-widest text-glow mb-4">Contactos</h1>
-            <div className="w-24 h-px bg-primary/30 mx-auto mt-8"></div>
+      {/* ── PAGE HERO ─────────────────────────────────────────────── */}
+      <header className="pt-48 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
+        <div className="max-w-7xl mx-auto">
+          <ScrollReveal direction="up" delay={100}>
+            <span className="eyebrow">Fala connosco</span>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={250}>
+            <h1 className="text-display text-[clamp(2.5rem,6vw,5.5rem)] text-[#E8DED2] leading-[1.04] max-w-3xl mb-8">
+              Contactos
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal direction="up" delay={400}>
+            <p className="text-body text-[#B9AA9A] max-w-[55ch] text-base leading-relaxed">
+              Estamos aqui para te ouvir. A consulta inicial é gratuita e sem compromisso.
+              Fala connosco por WhatsApp, email ou visita-nos na nossa loja em Aveiro.
+            </p>
           </ScrollReveal>
         </div>
+      </header>
 
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-start relative z-10">
-          {/* Contact Information Card */}
-          <ScrollReveal direction="right" delay={200}>
-            <div className="glass-panel border border-primary/20 p-8 md:p-12 space-y-12">
-              <div>
-                <h2 className="font-headline text-3xl italic text-on-surface mb-6">A Nossa Essência</h2>
-                <p className="font-body text-on-surface/60 leading-relaxed italic">
-                  "O Mundo Mágico transcende o digital. Convidamos-te a sentir a energia dos nossos artefactos pessoalmente na nossa loja física."
-                </p>
-              </div>
+      <main className="bg-[#0E0B0A]">
+        {/* ── CONTACT GRID ──────────────────────────────────────────── */}
+        <section className="py-24 md:py-32 px-8 md:px-16 border-b border-[rgba(232,222,210,0.08)]">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24">
 
-              <div className="space-y-8">
-                {/* Address */}
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1" data-icon="location_on">location_on</span>
-                  <div>
-                    <h3 className="font-label text-xs tracking-widest uppercase text-primary mb-2">Morada</h3>
-                    <p className="font-body text-on-surface/80">Rua da Prata sn, Santa Joana</p>
-                    <p className="font-body text-on-surface/80">3810-314 Aveiro, Portugal</p>
-                    <span className="inline-block mt-2 px-3 py-1 border border-primary/30 rounded-full text-[9px] font-label text-primary/70 uppercase tracking-tighter">Loja Física</span>
-                  </div>
-                </div>
-
-                {/* Phone */}
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1" data-icon="call">call</span>
-                  <div>
-                    <h3 className="font-label text-xs tracking-widest uppercase text-primary mb-2">Telefone</h3>
-                    <p className="font-body text-highlight text-on-surface/80">912 672 435</p>
-                  </div>
-                </div>
-
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <span className="material-symbols-outlined text-primary mt-1" data-icon="mail">mail</span>
-                  <div>
-                    <h3 className="font-label text-xs tracking-widest uppercase text-primary mb-2">Email</h3>
-                    <a href="mailto:borboleta_mariana18@hotmail.com" className="font-body text-on-surface/80 hover:text-primary transition-colors">
-                      borboleta_mariana18@hotmail.com
-                    </a>
-                  </div>
-                </div>
-
-                {/* Socials */}
-                <div className="flex items-start gap-4 opacity-50">
-                  <span className="material-symbols-outlined text-primary mt-1" data-icon="social_distance">public</span>
-                  <div>
-                    <h3 className="font-label text-xs tracking-widest uppercase text-primary mb-2">Redes Sociais</h3>
-                    <p className="font-body text-on-surface/80 italic text-sm">Encontra-nos no Facebook</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Map or Visual Placeholder (Maintaining Mystique) */}
-          <ScrollReveal direction="left" delay={400} className="h-full">
-            <div className="relative h-full min-h-[500px] overflow-hidden group">
-              <div className="absolute inset-0 border border-primary/20 z-0 translate-x-4 translate-y-4"></div>
-              <div className="absolute inset-0 bg-surface/40 backdrop-blur-sm z-10 flex items-center justify-center p-8 text-center border border-primary/20">
-                <div className="space-y-4">
-                  <span className="material-symbols-outlined text-primary/40 text-6xl" data-icon="auto_awesome">auto_awesome</span>
-                  <p className="font-headline text-xl italic text-on-surface/80">
-                    Um refúgio de magia espera por ti em Aveiro.
+            {/* Contact info — 4 cols */}
+            <div className="md:col-span-4 space-y-12">
+              <ScrollReveal direction="right">
+                <div>
+                  <span className="eyebrow">Morada</span>
+                  <p className="text-body text-[#E8DED2] text-base">
+                    Rua da Prata sn, Santa Joana<br />
+                    3810-314 Aveiro, Portugal
                   </p>
-                  <div className="pt-8">
-                     <button className="px-8 py-3 bg-primary text-on-primary font-label tracking-[0.2em] text-[10px] hover:bg-primary-container transition-all">
-                      COMO CHEGAR
-                    </button>
-                  </div>
                 </div>
-              </div>
-              <ParallaxWrapper speed={0.9} className="h-full">
-                <img 
-                   alt="Mapa Místico" 
-                   className="w-full h-full object-cover grayscale opacity-30 group-hover:scale-110 transition-transform duration-1000 scale-125" 
-                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLUDsBxcsY8z7f4UBiPanHfmoLVtaN418LKhJ4Bw1F0SyZEefDifweOjQvnDfOTzTsfdpY_EwfAv2sljENlg3Np_eBEfXY9bb5d8Yd91nWEK8VCrI1Ms4xuWlJ8-KwIyct2QPIMjHogjJqn3T9jundJ71tEh_1a2hTBtYwb_wHpLjv9CLim1Nz31re00PY9lJw77pt0Lp0fwTwTsxDKImC9wDJomGYdBrn9PDmpzfWFLlJdUXU3NlteWXLHl197m2O_P-8mpyMNXCt"
-                />
-              </ParallaxWrapper>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" delay={120}>
+                <div>
+                  <span className="eyebrow">Telefone & WhatsApp</span>
+                  <a
+                    href="tel:+351912672435"
+                    className="text-body text-[#E8DED2] text-base hover:text-[#8C6A3B] transition-colors duration-300 block"
+                  >
+                    912 672 435
+                  </a>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" delay={240}>
+                <div>
+                  <span className="eyebrow">Email</span>
+                  <a
+                    href="mailto:borboleta_mariana18@hotmail.com"
+                    className="text-body text-[#E8DED2] text-base hover:text-[#8C6A3B] transition-colors duration-300 block break-all"
+                  >
+                    borboleta_mariana18@hotmail.com
+                  </a>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" delay={360}>
+                <div>
+                  <span className="eyebrow">Horário</span>
+                  <p className="text-body text-[#B9AA9A] text-base">
+                    Segunda — Sábado<br />
+                    10:00 — 19:00
+                  </p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal direction="right" delay={480}>
+                <div>
+                  <span className="eyebrow">Redes Sociais</span>
+                  <p className="text-body text-[#B9AA9A] text-base italic">
+                    Encontra-nos no Facebook &amp; Instagram
+                  </p>
+                </div>
+              </ScrollReveal>
             </div>
-          </ScrollReveal>
-        </div>
+
+            {/* Contact form — 7 cols (offset 1) */}
+            <div className="md:col-span-7 md:col-start-6">
+              <ScrollReveal direction="left" delay={150}>
+                <div className="mb-10">
+                  <span className="eyebrow-accent">Formulário</span>
+                  <h2 className="text-heading text-[#E8DED2] text-3xl md:text-4xl">
+                    Envia uma mensagem
+                  </h2>
+                </div>
+
+                {formState.submitted ? (
+                  <div className="py-16 border border-[rgba(140,106,59,0.30)] text-center">
+                    <p className="font-serif italic text-[#E8DED2] text-2xl mb-3">
+                      Mensagem recebida.
+                    </p>
+                    <p className="text-body text-[#B9AA9A] text-sm">
+                      Respondemos em 24 horas. Obrigada pela tua confiança.
+                    </p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-8" noValidate>
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label
+                        htmlFor="name"
+                        className="text-label text-[#7E7065] block"
+                      >
+                        Nome
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        required
+                        autoComplete="name"
+                        value={formState.name}
+                        onChange={(e) => setFormState((s) => ({ ...s, name: e.target.value }))}
+                        className="w-full bg-transparent border-b border-[rgba(232,222,210,0.18)] py-3 text-[#E8DED2] font-sans text-sm font-light placeholder:text-[#7E7065] focus:outline-none focus:border-[#8C6A3B] transition-colors duration-300"
+                        placeholder="O teu nome"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label htmlFor="email" className="text-label text-[#7E7065] block">
+                        Email
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        autoComplete="email"
+                        value={formState.email}
+                        onChange={(e) => setFormState((s) => ({ ...s, email: e.target.value }))}
+                        className="w-full bg-transparent border-b border-[rgba(232,222,210,0.18)] py-3 text-[#E8DED2] font-sans text-sm font-light placeholder:text-[#7E7065] focus:outline-none focus:border-[#8C6A3B] transition-colors duration-300"
+                        placeholder="o-teu@email.com"
+                      />
+                    </div>
+
+                    {/* Message */}
+                    <div className="space-y-2">
+                      <label htmlFor="message" className="text-label text-[#7E7065] block">
+                        Mensagem
+                      </label>
+                      <textarea
+                        id="message"
+                        required
+                        rows={5}
+                        value={formState.message}
+                        onChange={(e) => setFormState((s) => ({ ...s, message: e.target.value }))}
+                        className="w-full bg-transparent border-b border-[rgba(232,222,210,0.18)] py-3 text-[#E8DED2] font-sans text-sm font-light placeholder:text-[#7E7065] focus:outline-none focus:border-[#8C6A3B] transition-colors duration-300 resize-none"
+                        placeholder="Descreve brevemente a tua situação ou pedido…"
+                      />
+                    </div>
+
+                    <button type="submit" className="btn-bronze">
+                      Enviar Mensagem
+                    </button>
+
+                    <p className="text-label text-[#7E7065]">
+                      Consulta inicial gratuita · Resposta em 24h · Confidencial
+                    </p>
+                  </form>
+                )}
+              </ScrollReveal>
+            </div>
+          </div>
+        </section>
+
+        {/* ── PULL QUOTE ────────────────────────────────────────────── */}
+        <section className="py-24 md:py-32 px-8 md:px-16 bg-[#161210]">
+          <div className="max-w-4xl mx-auto text-center">
+            <ScrollReveal direction="up">
+              <blockquote className="font-serif italic text-[#E8DED2] text-2xl md:text-3xl lg:text-4xl leading-relaxed">
+                &ldquo;Um refúgio de magia espera por ti em Aveiro.
+                A tua jornada começa com uma simples conversa.&rdquo;
+              </blockquote>
+              <div className="divider-accent mx-auto mt-10 mb-6" />
+              <cite className="text-label text-[#7E7065] not-italic">
+                Mundo Mágico, Aveiro
+              </cite>
+            </ScrollReveal>
+          </div>
+        </section>
       </main>
 
-      {/* Footer (Same as main page) */}
-      <footer className="bg-[#0e0e0e] flex flex-col items-center gap-8 py-12 px-4 w-full border-t border-primary/10">
-        <div className="font-['Newsreader'] text-xl text-[#e9c349]">Mundo Mágico</div>
-        <div className="flex flex-wrap justify-center gap-8 md:gap-12 font-['Manrope'] text-xs tracking-widest uppercase">
-          <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="#">Política de Privacidade</a>
-          <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="#">Envios & Devoluções</a>
-          <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="#">Termos de Serviço</a>
-          <a className="text-[#e5e2e1]/50 hover:text-[#dcb8ff] transition-all duration-500 opacity-80 hover:opacity-100" href="/contactos">Contactos</a>
-        </div>
-        <div className="flex gap-6 mt-4">
-          <span className="material-symbols-outlined text-[#e5e2e1]/30 hover:text-[#e9c349] cursor-pointer transition-colors" data-icon="star_rate">star_rate</span>
-          <span className="material-symbols-outlined text-[#e5e2e1]/30 hover:text-[#e9c349] cursor-pointer transition-colors" data-icon="auto_fix">auto_fix</span>
-          <span className="material-symbols-outlined text-[#e5e2e1]/30 hover:text-[#e9c349] cursor-pointer transition-colors" data-icon="history_edu">history_edu</span>
-        </div>
-        <div className="text-[#e5e2e1]/30 font-['Manrope'] text-[9px] tracking-[0.4em] uppercase mt-8">
-          © 2026 MUNDO MÁGICO. TODOS OS DIREITOS RESERVADOS.
+      {/* ── FOOTER ───────────────────────────────────────────────────── */}
+      <footer className="bg-[#0E0B0A] border-t border-[rgba(232,222,210,0.08)] pt-16 pb-10 px-8 md:px-16">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+            <div className="max-w-xs">
+              <Link href="/" className="font-serif italic text-xl text-[#E8DED2] block mb-4">
+                Mundo Mágico
+              </Link>
+              <p className="text-body text-sm text-[#7E7065] leading-relaxed">
+                Loja esotérica portuguesa. Artefactos rituais, leituras de tarot e serviços
+                espirituais desde o coração de Portugal.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-20 gap-y-3">
+              <Link href="/artefactos" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Artefactos</Link>
+              <Link href="/servicos" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Serviços</Link>
+              <Link href="/contactos" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Contactos</Link>
+              <a href="#" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Privacidade</a>
+              <a href="#" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Envios</a>
+              <a href="#" className="text-label text-[#7E7065] hover:text-[#8C6A3B] transition-colors">Termos</a>
+            </div>
+          </div>
+          <div className="divider mb-8" />
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-label text-[#7E7065]">&copy; 2026 Mundo Mágico. Todos os direitos reservados.</p>
+            <p className="text-label text-[#7E7065]">Portugal</p>
+          </div>
         </div>
       </footer>
     </>
   );
 }
-
