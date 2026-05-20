@@ -6,9 +6,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 export const metadata: Metadata = {
   title: "Serviços Místicos & Espirituais | Mundo Mágico",
   description:
-    "Leitura de tarot, rituais de amor e amarração, rituais de proteção e prosperidade, consulta espiritual, limpeza energética e banhos rituais. Atendimento presencial e online em Portugal.",
+    "Leitura de tarot, rituais de amor e amarração, rituais de proteção e prosperidade, consulta espiritual, limpeza energética e banhos rituais. Atendimento presencial em Aveiro e online para todo o país.",
   keywords: [
-    "leitura de tarot Portugal",
+    "leitura de tarot Aveiro",
     "ritual de amor",
     "amarração amorosa",
     "ritual de proteção",
@@ -16,14 +16,14 @@ export const metadata: Metadata = {
     "banho ritual",
     "consulta espiritual",
     "ritual de prosperidade",
-    "magia branca Portugal",
+    "magia branca Aveiro",
     "mundo mágico serviços",
-    "tarot online Portugal",
+    "tarot online Aveiro",
   ],
   openGraph: {
     title: "Serviços Místicos & Espirituais | Mundo Mágico",
     description:
-      "Rituais de amor, tarot, proteção, prosperidade e limpeza energética. Serviços espirituais personalizados com décadas de tradição ancestral.",
+      "Rituais de amor, tarot, proteção, prosperidade e limpeza energética. Serviços espirituais personalizados em Aveiro e online com décadas de tradição ancestral.",
     type: "website",
     locale: "pt_PT",
   },
@@ -180,7 +180,7 @@ export default function ServicosPage() {
             "@type": "LocalBusiness",
             name: "Mundo Mágico",
             description:
-              "Loja esotérica especializada em artefactos rituais, leitura de tarot, rituais de amor, proteção e prosperidade.",
+              "Loja esotérica em Aveiro, Portugal especializada em artefactos rituais, leitura de tarot, rituais de amor, proteção e prosperidade.",
             url: "https://mundomagico.pt",
             telephone: "+351912672435",
             address: {
@@ -218,7 +218,7 @@ export default function ServicosPage() {
             <p className="text-body text-[#B9AA9A] max-w-[55ch] text-base leading-relaxed">
               Do tarot à limpeza energética, dos rituais de amor à prosperidade — cada serviço
               é realizado com ética, respeito e décadas de conhecimento ancestral. Atendimento
-              presencial e online para todo o país.
+              presencial na nossa loja física em Aveiro e online para todo o país.
             </p>
           </ScrollReveal>
         </div>
@@ -320,9 +320,19 @@ export default function ServicosPage() {
                   Consulta inicial gratuita, sem compromisso. Fala connosco por WhatsApp
                   ou preenche o formulário de contacto.
                 </p>
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap items-center gap-5">
                   <Link href="/contactos" className="btn-bronze">Contactar Agora</Link>
-                  <Link href="/artefactos" className="btn-ghost">Ver Artefactos</Link>
+                  <Link
+                    href="/artefactos"
+                    className="relative inline-flex items-center gap-4 px-8 py-3.5 border border-[#8C6A3B]/45 hover:border-[#8C6A3B] text-white hover:text-white font-sans text-[0.72rem] font-medium tracking-[0.25em] uppercase transition-all duration-500 overflow-hidden group rounded-sm bg-transparent"
+                  >
+                    <span className="relative z-10 flex items-center gap-2.5">
+                      <span className="font-serif italic text-[#8C6A3B] group-hover:text-white transition-colors duration-300 text-sm">✦</span>
+                      Ver Artefactos
+                    </span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#8C6A3B]/0 via-[#8C6A3B]/10 to-[#8C6A3B]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
+                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#8C6A3B] group-hover:w-full transition-all duration-500" />
+                  </Link>
                 </div>
               </div>
             </ScrollReveal>

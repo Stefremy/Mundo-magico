@@ -89,9 +89,20 @@ export default function ContactosPage() {
               <ScrollReveal direction="right" delay={480}>
                 <div>
                   <span className="eyebrow">Redes Sociais</span>
-                  <p className="text-body text-[#B9AA9A] text-base italic">
-                    Encontra-nos no Facebook &amp; Instagram
-                  </p>
+                  <div className="text-body text-[#B9AA9A] text-base italic space-y-1">
+                    <p>
+                      Encontra-nos no{" "}
+                      <a
+                        href="https://www.facebook.com/share/v/1CEd3RzpGz/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#E8DED2] hover:text-[#8C6A3B] underline underline-offset-4 transition-colors duration-300 not-italic"
+                      >
+                        Facebook
+                      </a>{" "}
+                      &amp; Instagram
+                    </p>
+                  </div>
                 </div>
               </ScrollReveal>
             </div>

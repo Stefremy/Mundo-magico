@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const SERVICES = [
   {
@@ -30,7 +31,7 @@ const SERVICES = [
   },
 ];
 
-const CARD_STEP = 270; // px between card centres in the track
+const CARD_STEP = 330; // px between card centres in the track
 
 export default function StickyServices() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -84,8 +85,22 @@ export default function StickyServices() {
         className="sticky w-full overflow-hidden flex items-center z-10"
         style={{ top: "58px", height: "calc(100vh - 58px)" }}
       >
+        {/* Background Image -- sintra gogh.png with rich dark vignette overlay */}
+        <div className="absolute inset-0 z-0 opacity-70 pointer-events-none select-none">
+          <Image
+            alt=""
+            src="/images/sintra%20gogh.png"
+            fill
+            priority
+            className="object-cover"
+            style={{ filter: "brightness(0.7) saturate(1.2)" }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0E0B0A] via-transparent to-[#0E0B0A] opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E0B0A] via-transparent to-[#0E0B0A] opacity-60" />
+        </div>
+
         {/* Left -- static glyph + label */}
-        <div className="hidden md:flex flex-col items-center justify-center w-24 lg:w-32 h-full border-r border-[rgba(232,222,210,0.07)] shrink-0">
+        <div className="relative z-10 hidden md:flex flex-col items-center justify-center w-24 lg:w-32 h-full border-r border-[rgba(232,222,210,0.07)] shrink-0">
           <span className="font-serif italic text-[#8C6A3B] text-5xl select-none" aria-hidden="true">
             ✦
           </span>
@@ -98,7 +113,7 @@ export default function StickyServices() {
         </div>
 
         {/* Centre -- section heading */}
-        <div className="flex-1 h-full flex flex-col justify-center px-8 md:px-16 max-w-2xl">
+        <div className="relative z-10 flex-1 h-full flex flex-col justify-center px-8 md:px-16 max-w-2xl">
           <span className="eyebrow mb-4">O que fazemos</span>
           <h2 className="text-heading text-[#E8DED2] text-4xl md:text-5xl leading-tight mb-6">
             Rituais &amp;<br />
@@ -124,7 +139,7 @@ export default function StickyServices() {
         </div>
 
         {/* Right -- scrolling card track */}
-        <div className="hidden md:block relative w-[380px] lg:w-[420px] h-full shrink-0 overflow-hidden">
+        <div className="relative z-10 hidden md:block w-[380px] lg:w-[420px] h-full shrink-0 overflow-hidden">
           {/* Fade masks */}
           <div
             className="absolute inset-x-0 top-0 h-24 z-10 pointer-events-none"
@@ -141,7 +156,7 @@ export default function StickyServices() {
           <div
             className="absolute inset-x-6"
             style={{
-              top: "calc(50% - 115px)",
+              top: "calc(50% - 165px)",
               transform: `translateY(${trackY}px)`,
               transition: reducedMotion ? "none" : "transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94)",
             }}
@@ -161,23 +176,23 @@ export default function StickyServices() {
                     backgroundColor: isActive ? "rgba(29,24,21,0.95)" : "rgba(14,11,10,0.60)",
                     opacity,
                     transform: `scale(${scale})`,
-                    padding: "2rem",
-                    minHeight: "200px",
+                    padding: "2.2rem",
+                    minHeight: "250px",
                   }}
                 >
                   <div className="flex items-start justify-between mb-4">
-                    <span className="text-label text-[#8C6A3B]">{svc.num}</span>
+                    <span className="text-label text-[#8C6A3B] text-[0.8rem]">{svc.num}</span>
                     <span
-                      className="text-label px-3 py-1 rounded-full"
-                      style={{ color: "#8C6A3B", border: "1px solid rgba(140,106,59,0.3)", fontSize: "0.65rem" }}
+                      className="text-label px-3.5 py-1 rounded-full"
+                      style={{ color: "#8C6A3B", border: "1px solid rgba(140,106,59,0.3)", fontSize: "0.75rem" }}
                     >
                       {svc.tag}
                     </span>
                   </div>
-                  <h3 className="font-serif italic text-[#E8DED2] text-2xl mb-3 leading-snug">
+                  <h3 className="font-serif italic text-[#E8DED2] text-3xl mb-3 leading-snug">
                     {svc.title}
                   </h3>
-                  <p className="text-body text-[#7E7065] text-sm leading-relaxed">
+                  <p className="text-body text-[#7E7065] text-base leading-relaxed">
                     {svc.desc}
                   </p>
                 </div>
@@ -187,12 +202,20 @@ export default function StickyServices() {
         </div>
 
         {/* Mobile -- simple stacked list */}
-        <div className="md:hidden flex flex-col gap-6 px-8 py-12 overflow-y-auto h-full w-full">
+        <div className="relative z-10 md:hidden flex flex-col gap-6 px-8 py-12 overflow-y-auto h-full w-full">
           {SERVICES.map((svc) => (
             <div key={svc.num} className="border border-[rgba(232,222,210,0.10)] p-6 rounded-sm">
-              <span className="text-label text-[#8C6A3B] block mb-2">{svc.num}</span>
-              <h3 className="font-serif italic text-[#E8DED2] text-xl mb-2">{svc.title}</h3>
-              <p className="text-body text-[#7E7065] text-sm">{svc.desc}</p>
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-label text-[#8C6A3B] text-[0.8rem]">{svc.num}</span>
+                <span
+                  className="text-label px-2.5 py-0.5 rounded-full"
+                  style={{ color: "#8C6A3B", border: "1px solid rgba(140,106,59,0.3)", fontSize: "0.68rem" }}
+                >
+                  {svc.tag}
+                </span>
+              </div>
+              <h3 className="font-serif italic text-[#E8DED2] text-2xl mb-2">{svc.title}</h3>
+              <p className="text-body text-[#7E7065] text-base leading-relaxed">{svc.desc}</p>
             </div>
           ))}
           <Link href="/servicos" className="btn-bronze self-start mt-4">

@@ -5,25 +5,25 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
 
 const PRODUCTS = [
-  { id: 1,  name: "Vela Ritual Vira Pensamento",      desc: "Influência e Clareza Mental",     price: "12,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.09.jpeg" },
-  { id: 2,  name: "Velão Mágico Volteio",              desc: "Retorno de Energias Negativas",   price: "15,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.10.jpeg" },
-  { id: 3,  name: "Velas de Ritual Brancas",           desc: "Puras para Oração e Paz",         price: "8,00 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.11.jpeg" },
-  { id: 4,  name: "Velão 3 Pavios — Corta Trabalhos",  desc: "Quebra de Bruxaria Pesada",       price: "18,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.12.jpeg" },
-  { id: 5,  name: "Vela Ritual do Sol",                desc: "Atração de Dinheiro e Sucesso",   price: "9,90 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.13.jpeg" },
-  { id: 6,  name: "Vela Ritual Dualidade",             desc: "Equilíbrio e Justiça",            price: "10,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.13 (1).jpeg" },
-  { id: 7,  name: "Ritual 11 Mechas Caveira Vermelha", desc: "Ritual de Amor e Paixão",         price: "18,90 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.14.jpeg" },
-  { id: 8,  name: "Vela Figurativa Casal Branco",      desc: "Paz e União Conjugal",            price: "10,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.15.jpeg" },
-  { id: 9,  name: "Vela Tesoura de Ritual",            desc: "Corte de Laços e Energias",       price: "11,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.16.jpeg" },
-  { id: 10, name: "Vela Figurativa Casa Branca",       desc: "Limpeza e Proteção do Lar",       price: "10,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.17.jpeg" },
-  { id: 11, name: "Vela Figurativa Casal Mel",         desc: "Doçura e Encantamento no Amor",   price: "10,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.18.jpeg" },
-  { id: 12, name: "Kit Ritual Impotência Máxima",      desc: "Inibição de Força Masculina",     price: "22,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.19.jpeg" },
-  { id: 13, name: "Sabão Ritual Desata Nós",           desc: "Resolução de Problemas Difíceis", price: "7,50 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.20.jpeg" },
-  { id: 14, name: "Sabonete Proteção Espiritual",      desc: "Escudo Energético Diário",        price: "6,90 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.21.jpeg" },
-  { id: 15, name: "Kit Ritual És Só Para Mim",         desc: "Foco Absoluto no Amor",           price: "24,90 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.22.jpeg" },
-  { id: 16, name: "Vela Ritual Zé Pelintra",           desc: "Abertura de Caminhos e Proteção", price: "12,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.23.jpeg" },
-  { id: 17, name: "Velão 7 Mechas Branco",             desc: "Limpeza Profunda e Desbloqueio",  price: "16,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.23 (1).jpeg" },
-  { id: 18, name: "Velão 7 Mechas Multicor",           desc: "Limpeza e Reequilíbrio Total",    price: "16,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.24.jpeg" },
-  { id: 19, name: "Velão 7 Mechas Preto",              desc: "Quebra Radical de Feitiços",      price: "16,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.25.jpeg" },
+  { id: 1,  name: "Vela Ritual Vira Pensamento",      desc: "Influência e Clareza Mental",     price: "12,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.09.jpeg", category: "Velas" },
+  { id: 2,  name: "Velão Mágico Volteio",              desc: "Retorno de Energias Negativas",   price: "15,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.10.jpeg", category: "Velões" },
+  { id: 3,  name: "Velas de Ritual Brancas",           desc: "Puras para Oração e Paz",         price: "8,00 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.11.jpeg", category: "Velas" },
+  { id: 4,  name: "Velão 3 Pavios — Corta Trabalhos",  desc: "Quebra de Bruxaria Pesada",       price: "18,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.12.jpeg", category: "Velões" },
+  { id: 5,  name: "Vela Ritual do Sol",                desc: "Atração de Dinheiro e Sucesso",   price: "9,90 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.13.jpeg", category: "Velas" },
+  { id: 6,  name: "Vela Ritual Dualidade",             desc: "Equilíbrio e Justiça",            price: "10,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.13 (1).jpeg", category: "Velas" },
+  { id: 7,  name: "Ritual 11 Mechas Caveira Vermelha", desc: "Ritual de Amor e Paixão",         price: "18,90 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.14.jpeg", category: "Velas" },
+  { id: 8,  name: "Vela Figurativa Casal Branco",      desc: "Paz e União Conjugal",            price: "10,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.15.jpeg", category: "Velas" },
+  { id: 9,  name: "Vela Tesoura de Ritual",            desc: "Corte de Laços e Energias",       price: "11,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.16.jpeg", category: "Velas" },
+  { id: 10, name: "Vela Figurativa Casa Branca",       desc: "Limpeza e Proteção do Lar",       price: "10,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.17.jpeg", category: "Velas" },
+  { id: 11, name: "Vela Figurativa Casal Mel",         desc: "Doçura e Encantamento no Amor",   price: "10,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.18.jpeg", category: "Velas" },
+  { id: 12, name: "Kit Ritual Impotência Máxima",      desc: "Inibição de Força Masculina",     price: "22,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.19.jpeg", category: "Kits Rituais" },
+  { id: 13, name: "Sabão Ritual Desata Nós",           desc: "Resolução de Problemas Difíceis", price: "7,50 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.20.jpeg", category: "Sabonetes" },
+  { id: 14, name: "Sabonete Proteção Espiritual",      desc: "Escudo Energético Diário",        price: "6,90 €",  img: "/images/WhatsApp Image 2026-03-30 at 17.39.21.jpeg", category: "Sabonetes" },
+  { id: 15, name: "Kit Ritual És Só Para Mim",         desc: "Foco Absoluto no Amor",           price: "24,90 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.22.jpeg", category: "Kits Rituais" },
+  { id: 16, name: "Vela Ritual Zé Pelintra",           desc: "Abertura de Caminhos e Proteção", price: "12,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.23.jpeg", category: "Velas" },
+  { id: 17, name: "Velão 7 Mechas Branco",             desc: "Limpeza Profunda e Desbloqueio",  price: "16,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.23 (1).jpeg", category: "Velões" },
+  { id: 18, name: "Velão 7 Mechas Multicor",           desc: "Limpeza e Reequilíbrio Total",    price: "16,50 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.24.jpeg", category: "Velões" },
+  { id: 19, name: "Velão 7 Mechas Preto",              desc: "Quebra Radical de Feitiços",      price: "16,00 €", img: "/images/WhatsApp Image 2026-03-30 at 17.39.25.jpeg", category: "Velões" },
 ];
 
 const CATEGORIES = ["Todos", "Velas", "Kits Rituais", "Sabonetes", "Velões"];
@@ -31,25 +31,48 @@ const CATEGORIES = ["Todos", "Velas", "Kits Rituais", "Sabonetes", "Velões"];
 export default function ArtefactosPage() {
   const [activeCategory, setActiveCategory] = useState("Todos");
 
+  const filteredProducts = activeCategory === "Todos"
+    ? PRODUCTS
+    : PRODUCTS.filter((product) => product.category === activeCategory);
+
   return (
     <>
 
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
-      <header className="pt-24 pb-16 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
-        <div className="max-w-7xl mx-auto">
+      <header className="relative pt-36 pb-24 px-8 md:px-16 overflow-hidden min-h-[420px] flex items-end border-b border-[rgba(232,222,210,0.08)]">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            alt="Floresta Mística"
+            src="/images/floresta.jpg"
+            fill
+            priority
+            className="object-cover object-center"
+            style={{ filter: "brightness(0.5) sepia(10%) contrast(1.05)" }}
+          />
+          {/* Multi-stop gradient overlay for legibility and transition */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, #0E0B0A 0%, rgba(14,11,10,0.72) 40%, rgba(14,11,10,0.3) 100%)",
+            }}
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10 w-full">
           <ScrollReveal direction="up" delay={100}>
-            <span className="eyebrow">Tesouros Consagrados</span>
+            <span className="eyebrow text-[#E8DED2]">Tesouros Consagrados</span>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={250}>
             <h1 className="text-display text-[clamp(2.5rem,6vw,5.5rem)] text-[#E8DED2] leading-[1.04] max-w-3xl mb-8">
               Artefactos<br />
-              <em className="text-[#8C6A3B]">de Ritual</em>
+              <em className="text-[#E8DED2]">de Ritual</em>
             </h1>
           </ScrollReveal>
           <ScrollReveal direction="up" delay={400}>
-            <p className="text-body text-[#B9AA9A] max-w-[55ch] text-base leading-relaxed">
-              Cada peça é de origem ética, consagrada segundo tradições ancestrais e tratada
-              com a reverência que merece. Utilize com intenção pura.
+            <p className="text-body text-[#EDE4D8] max-w-[55ch] text-base leading-relaxed opacity-95">
+              Cada peça é de origem ética, consagrada segundo tradições ancestrais no nosso espaço em Aveiro, Portugal, e tratada com a reverência que merece. Utilize com intenção pura.
             </p>
           </ScrollReveal>
         </div>
@@ -78,7 +101,7 @@ export default function ArtefactosPage() {
         {/* ── PRODUCTS GRID ─────────────────────────────────────────── */}
         <section className="max-w-7xl mx-auto px-8 md:px-16 pb-24">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-14">
-            {PRODUCTS.map((product, i) => (
+            {filteredProducts.map((product, i) => (
               <ScrollReveal key={product.id} delay={(i % 4) * 90} direction="up">
                 <article className="group cursor-pointer">
                   <div className="relative aspect-[3/4] bg-[#E8E0D5] mb-5 overflow-hidden">

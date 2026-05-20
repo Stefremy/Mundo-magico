@@ -65,7 +65,7 @@ export default function Home() {
         >
           <Image
             alt=""
-            src="/images/enchanted-forest-lights-stockcake.webp"
+            src="/images/magic%20forest.jpg"
             fill
             priority
             className="object-cover scale-105"
@@ -89,8 +89,8 @@ export default function Home() {
           style={{ transform: `translateY(${-scrollY * 0.08}px)` }}
         >
           <ScrollReveal direction="up" delay={200}>
-            <span className="eyebrow mb-6">
-              Loja Esotérica &amp; Rituais Ancestrais — Portugal
+            <span className="font-sans text-[0.75rem] font-medium tracking-[0.25em] uppercase text-white block mb-6">
+              Loja Esotérica &amp; Rituais Ancestrais — Aveiro, Portugal
             </span>
           </ScrollReveal>
 
@@ -111,12 +111,20 @@ export default function Home() {
           </ScrollReveal>
 
           <ScrollReveal direction="up" delay={700}>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap items-center gap-5">
               <Link href="/servicos" className="btn-bronze">
                 Explorar Serviços
               </Link>
-              <Link href="/#novidades" className="btn-ghost">
-                Ver Artefactos
+              <Link
+                href="/artefactos"
+                className="relative inline-flex items-center gap-4 px-8 py-3.5 border border-[#8C6A3B]/45 hover:border-[#8C6A3B] text-white hover:text-white font-sans text-[0.72rem] font-medium tracking-[0.25em] uppercase transition-all duration-500 overflow-hidden group rounded-sm bg-transparent"
+              >
+                <span className="relative z-10 flex items-center gap-2.5">
+                  <span className="font-serif italic text-[#8C6A3B] group-hover:text-white transition-colors duration-300 text-sm">✦</span>
+                  Ver Artefactos
+                </span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#8C6A3B]/0 via-[#8C6A3B]/10 to-[#8C6A3B]/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-out" />
+                <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#8C6A3B] group-hover:w-full transition-all duration-500" />
               </Link>
             </div>
           </ScrollReveal>
@@ -249,8 +257,8 @@ export default function Home() {
                   className="absolute -top-5 -left-5 w-full h-full border border-[rgba(140,106,59,0.18)] pointer-events-none z-0"
                 />
                 <Image
-                  alt="A fundadora do Mundo Mágico, a Tecedeira de Sombras"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgj0luYHPi3M6zZsvzKxdl19N9qA994BaLay20Rc6emLftQFpGfnPoac18C90ndhTi1chJMxD_G_QvoefbwHzz5pyTpN95cBJ59EOP_iLthO8KLzSQe3bptEDxBgxYdCoLHjpT2gqzsTUacjgLUeeCKbxHKGoX8090usx361eEbm8C_FVciY2UjSiWCgdQYwXggLd9S923fo13I2U765Czm3XD6o_kM31ShZ69Mbizj2tZKXi98Kgc9--b6xszqfRJrrk8DmEI5kjp"
+                  alt="Artefactos Mágicos e Rituais"
+                  src="/images/magical-products.png"
                   width={560}
                   height={700}
                   className="relative z-10 w-full aspect-[4/5] object-cover img-archival"
@@ -261,41 +269,40 @@ export default function Home() {
             {/* Text -- 7 columns */}
             <div className="md:col-span-7 space-y-10">
               <ScrollReveal direction="left" delay={150}>
-                <span className="eyebrow-accent">A Linhagem</span>
+                <span className="eyebrow-accent">A Nossa Essência</span>
                 <h2 className="text-heading text-[#E8DED2] text-4xl md:text-5xl">
-                  A Tecedeira<br />de Sombras
+                  Portais de Intenção<br />para a tua jornada
                 </h2>
               </ScrollReveal>
 
               {/* Pull-quote -- large, serif italic */}
               <ScrollReveal direction="left" delay={300}>
                 <p className="font-serif italic text-[#B9AA9A] text-2xl md:text-3xl leading-relaxed border-l-2 border-[rgba(140,106,59,0.40)] pl-8">
-                  Não vendemos apenas objectos &mdash;
-                  curamos veículos de intenção.
+                  Não são simples objectos; são cúmplices de luz criados para nutrir o teu espírito.
                 </p>
               </ScrollReveal>
 
               <ScrollReveal direction="left" delay={450}>
                 <div className="text-body space-y-4 max-w-[54ch]">
                   <p>
-                    Há mais de sete gerações, a linhagem da Tecedeira preservou
-                    o conhecimento oculto dos reinos celestiais. A nossa missão
-                    é unir o mundo mundano ao mágico, proporcionando ao buscador
-                    moderno ferramentas que ressoam com poder ancestral.
+                    No Mundo Mágico, acreditamos que a verdadeira magia reside nos pequenos gestos.
+                    As nossas velas figurativas de mel para adoçar o coração, os sabonetes artesanais para
+                    desatar nós difíceis e os velões consagrados são preparados manualmente, com ingredientes puros, 
+                    respeito pelas leis universais e a energia mais elevada.
                   </p>
                   <p>
-                    Cada peça é de origem ética e tratada com a reverência que
-                    merece, garantindo que a tua jornada espiritual seja apoiada
-                    pelas vibrações mais elevadas.
+                    Acender uma mecha, purificar o teu espaço ou concentrar a tua mente num ritual
+                    são formas doces e poderosas de cuidares de ti, de ouvires a tua própria intuição e de 
+                    manifestares os teus desejos mais profundos.
                   </p>
                 </div>
               </ScrollReveal>
 
               <ScrollReveal direction="left" delay={600}>
-                <button className="btn-text">
-                  A Nossa História
+                <Link href="/artefactos" className="btn-text">
+                  Ver Colecção
                   <span className="arrow-line" />
-                </button>
+                </Link>
               </ScrollReveal>
             </div>
           </div>
@@ -318,7 +325,7 @@ export default function Home() {
             </blockquote>
             <div className="divider-accent mx-auto mb-6" />
             <cite className="text-label text-[#7E7065] not-italic">
-              M.F. &mdash; Lisboa, 2025
+              M.F. &mdash; Aveiro, 2025
             </cite>
           </ScrollReveal>
         </div>

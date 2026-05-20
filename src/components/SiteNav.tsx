@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function SiteNav() {
   return (
-    <nav className="fixed top-0 z-50 w-full bg-[#2A2118]/80 backdrop-blur-lg border-b border-[rgba(232,222,210,0.10)] flex items-stretch h-[58px]">
+    <nav className="fixed top-0 z-50 w-full bg-[#0E0B0A]/95 backdrop-blur-lg border-b border-[rgba(232,222,210,0.12)] flex items-stretch h-[58px]">
 
       {/* Brand */}
       <Link
         href="/"
         aria-label="Mundo Mágico"
-        className="flex items-center px-6 md:px-10 border-r border-[rgba(232,222,210,0.08)] font-serif italic text-[#E8DED2] text-[1.05rem] tracking-wide hover:text-[#8C6A3B] transition-colors duration-300 shrink-0"
+        className="flex items-center px-6 md:px-10 border-r border-[rgba(232,222,210,0.10)] font-serif italic text-white text-[1.2rem] font-semibold tracking-wide hover:text-[#8C6A3B] transition-colors duration-300 shrink-0"
       >
         Mundo Mágico
       </Link>
@@ -21,12 +21,13 @@ export default function SiteNav() {
           { label: "Novidades", href: "/#novidades" },
           { label: "Artefactos", href: "/artefactos" },
           { label: "Serviços", href: "/servicos" },
+          { label: "Sobre Nós", href: "/sobre" },
           { label: "Contactos", href: "/contactos" },
         ].map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center px-7 text-label text-[#B9AA9A] hover:text-[#E8DED2] hover:bg-[rgba(232,222,210,0.04)] border-r border-[rgba(232,222,210,0.08)] transition-all duration-200 tracking-widest"
+            className="flex items-center px-8 font-sans uppercase text-white hover:text-[#8C6A3B] hover:bg-[rgba(232,222,210,0.05)] border-r border-[rgba(232,222,210,0.10)] transition-all duration-200 tracking-[0.25em] text-[0.78rem] font-medium"
           >
             {item.label.toUpperCase()}
           </Link>
@@ -40,17 +41,17 @@ export default function SiteNav() {
       <div className="flex items-stretch">
         <button
           aria-label="Carrinho"
-          className="flex items-center px-5 border-l border-[rgba(232,222,210,0.08)] text-[#7E7065] hover:text-[#E8DED2] hover:bg-[rgba(232,222,210,0.04)] transition-all duration-200"
+          className="flex items-center px-6 border-l border-[rgba(232,222,210,0.10)] text-white/80 hover:text-white hover:bg-[rgba(232,222,210,0.05)] transition-all duration-200"
         >
-          <span className="material-symbols-outlined text-[18px]">shopping_bag</span>
+          <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
         </button>
 
         <Link
           href="/servicos"
-          className="hidden md:flex items-center gap-3 px-6 border-l border-[rgba(232,222,210,0.08)] bg-[#4E5A46] hover:bg-[#5C6B54] text-[#EDE4D8] text-label tracking-widest transition-all duration-300 group"
+          className="hidden md:flex items-center gap-3 px-7 border-l border-[rgba(232,222,210,0.10)] bg-[#2D6A4F] hover:bg-[#3E8B62] text-white font-semibold font-sans uppercase tracking-[0.22em] text-[0.78rem] transition-all duration-300 group"
         >
           CONSULTAR
-          <span className="flex items-center justify-center w-6 h-6 bg-[rgba(0,0,0,0.20)] group-hover:bg-[rgba(0,0,0,0.30)] transition-colors duration-300">
+          <span className="flex items-center justify-center w-6 h-6 bg-[rgba(255,255,255,0.15)] group-hover:bg-[rgba(255,255,255,0.22)] transition-colors duration-300">
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>

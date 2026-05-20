@@ -19,30 +19,31 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "Mundo Mágico — Loja Esotérica & Serviços Espirituais Portugal",
+    default: "Mundo Mágico — Loja Esotérica em Aveiro, Portugal",
     template: "%s | Mundo Mágico",
   },
   description:
-    "Loja esotérica portuguesa especializada em artefactos rituais, velas, cristais, tarot e serviços espirituais: rituais de amor, proteção, prosperidade e limpeza energética. Atendimento presencial e online.",
+    "Loja esotérica em Aveiro, Portugal, especializada em artefactos rituais, velas, cristais, tarot e serviços espirituais: rituais de amor, proteção, prosperidade e limpeza energética. Atendimento presencial e online.",
   keywords: [
-    "loja esotérica Portugal",
+    "loja esotérica Aveiro",
+    "loja esotérica em Aveiro Portugal",
     "artefactos rituais",
     "velas rituais",
     "cristais",
-    "tarot Portugal",
+    "tarot Aveiro",
     "ritual de amor",
     "amarração",
     "limpeza energética",
     "ritual de proteção",
     "prosperidade espiritual",
     "magia branca",
-    "espiritualidade Portugal",
+    "espiritualidade Aveiro",
     "mundo mágico",
   ],
   openGraph: {
-    title: "Mundo Mágico — Loja Esotérica & Serviços Espirituais Portugal",
+    title: "Mundo Mágico — Loja Esotérica em Aveiro, Portugal",
     description:
-      "Artefactos rituais, velas, cristais, tarot e rituais espirituais de amor, proteção e prosperidade. Atendimento presencial e online em todo Portugal.",
+      "Artefactos rituais, velas, cristais, tarot e rituais espirituais de amor, proteção e prosperidade. Atendimento presencial em Aveiro e online para todo o país.",
     type: "website",
     locale: "pt_PT",
     siteName: "Mundo Mágico",
