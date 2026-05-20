@@ -41,6 +41,8 @@ export default function StickyServices() {
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
       : false;
 
+  const NAV_H = 58; // px — height of the fixed SiteNav bar
+
   const onScroll = useCallback(() => {
     if (rafRef.current) return;
     rafRef.current = requestAnimationFrame(() => {
@@ -48,9 +50,11 @@ export default function StickyServices() {
       const el = sectionRef.current;
       if (!el) return;
       const { top, height } = el.getBoundingClientRect();
-      const viewH = window.innerHeight;
+      const viewH = window.innerHeight - NAV_H;
+      // Offset top so progress starts once the section top passes below the nav
+      const adjustedTop = top - NAV_H;
       const travel = height - viewH;
-      const raw = travel > 0 ? -top / travel : 0;
+      const raw = travel > 0 ? -adjustedTop / travel : 0;
       setProgress(Math.min(1, Math.max(0, raw)));
     });
   }, []);
@@ -76,7 +80,7 @@ export default function StickyServices() {
       aria-label="Os nossos servicos"
     >
       {/* Sticky viewport frame */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center z-10">
+      <div className="sticky h-screen w-full overflow-hidden flex items-center z-10" style={{ top: "58px" }}>
         {/* Left -- static glyph + label */}
         <div className="hidden md:flex flex-col items-center justify-center w-24 lg:w-32 h-full border-r border-[rgba(232,222,210,0.07)] shrink-0">
           <span className="font-serif italic text-[#8C6A3B] text-5xl select-none" aria-hidden="true">
