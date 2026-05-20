@@ -3,9 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
+import StickyServices from "@/components/StickyServices";
 import { useEffect, useState } from "react";
 
-/* ── product data ───────────────────────────────────────────────── */
+/* -- product data ------------------------------------------------- */
 const PRODUCTS = [
   {
     title: "Vela Ritual Vira Pensamento",
@@ -37,13 +38,6 @@ const PRODUCTS = [
   },
 ];
 
-const SERVICES_PREVIEW = [
-  { name: "Leitura de Tarot", note: "Presencial & Online", href: "/servicos#leitura-tarot" },
-  { name: "Rituais de Amor", note: "Amarração & Atracção", href: "/servicos#ritual-amor" },
-  { name: "Proteção Espiritual", note: "Escudos & Limpeza", href: "/servicos#ritual-protecao" },
-  { name: "Prosperidade", note: "Abertura de Caminhos", href: "/servicos#ritual-prosperidade" },
-];
-
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const [navScrolled, setNavScrolled] = useState(false);
@@ -59,10 +53,10 @@ export default function Home() {
 
   return (
     <>
-      {/* ══ NAV ═══════════════════════════════════════════════════════════
+      {/* == NAV ===================================================
           Starts transparent. Transitions to dark blurred on scroll.
-          No logo icon — the name IS the mark.
-      ═══════════════════════════════════════════════════════════════════ */}
+          No logo icon -- the name IS the mark.
+      ======================================================== */}
       <nav
         className={`fixed top-0 z-50 w-full px-8 md:px-16 py-6 flex justify-between items-center transition-all duration-700 ${
           navScrolled
@@ -103,13 +97,13 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ══ HERO ══════════════════════════════════════════════════════════
+      {/* == HERO ==================================================
           Full-screen cinematic. One monumental headline.
-          Inspired by the editorial calm of PieterKoopt.nl — story first,
+          Inspired by the editorial calm of PieterKoopt.nl -- story first,
           interface second. No glow, no borders around the text.
-      ═══════════════════════════════════════════════════════════════════ */}
+      ======================================================== */}
       <header className="relative h-screen min-h-[700px] w-full flex items-end justify-start overflow-hidden">
-        {/* Background — parallax image, sepia-treated */}
+        {/* Background -- parallax image, sepia-treated */}
         <div
           className="absolute inset-0 z-0"
           style={{ transform: `translateY(${scrollY * 0.3}px)` }}
@@ -124,7 +118,7 @@ export default function Home() {
           />
         </div>
 
-        {/* Multi-stop gradient veil — bottom-heavy, warm */}
+        {/* Multi-stop gradient veil -- bottom-heavy, warm */}
         <div
           className="absolute inset-0 z-0"
           style={{
@@ -134,7 +128,7 @@ export default function Home() {
           aria-hidden="true"
         />
 
-        {/* Hero text — bottom-left, asymmetric, editorial */}
+        {/* Hero text -- bottom-left, asymmetric, editorial */}
         <div
           className="relative z-10 px-8 md:px-16 pb-20 md:pb-28 max-w-5xl"
           style={{ transform: `translateY(${-scrollY * 0.08}px)` }}
@@ -185,9 +179,9 @@ export default function Home() {
         </div>
       </header>
 
-      {/* ══ ARCHIVE STRIP ════════════════════════════════════════════════
-          Horizontal categories. Numbered. No icons — pure typography.
-      ═══════════════════════════════════════════════════════════════════ */}
+      {/* == ARCHIVE STRIP =========================================
+          Horizontal categories. Numbered. No icons -- pure typography.
+      ======================================================== */}
       <section className="py-16 border-b border-[rgba(232,222,210,0.10)] overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-0">
@@ -212,10 +206,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ NEW ARRIVALS ══════════════════════════════════════════════════
-          Light (inverted) section — archival white cards with dark type.
+      {/* == NEW ARRIVALS ==========================================
+          Light (inverted) section -- archival white cards with dark type.
           Asymmetric header: title left, link right (editorial rhythm).
-      ═══════════════════════════════════════════════════════════════════ */}
+      ======================================================== */}
       <section id="novidades" className="py-24 md:py-32 bg-[#F2EDE6]">
         <div className="max-w-7xl mx-auto px-8 md:px-16">
           <ScrollReveal>
@@ -283,16 +277,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ BRAND STORY ═══════════════════════════════════════════════════
+      {/* == BRAND STORY ===========================================
           Full-width cinematic image left. Editorial text right.
           Asymmetric columns (5/7). Offset frame for depth.
           Quote rendered as large pull-quote, not a blockquote widget.
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-40 bg-[#0E0B0A]">
+      ======================================================== */}
+      <section className="relative z-0 py-24 md:py-40 bg-[#0E0B0A]">
         <div className="max-w-7xl mx-auto px-8 md:px-16">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 items-center">
 
-            {/* Image — 5 columns, offset frame */}
+            {/* Image -- 5 columns, offset frame */}
             <div className="md:col-span-5 relative">
               <ScrollReveal direction="right">
                 <div
@@ -309,7 +303,7 @@ export default function Home() {
               </ScrollReveal>
             </div>
 
-            {/* Text — 7 columns */}
+            {/* Text -- 7 columns */}
             <div className="md:col-span-7 space-y-10">
               <ScrollReveal direction="left" delay={150}>
                 <span className="eyebrow-accent">A Linhagem</span>
@@ -318,7 +312,7 @@ export default function Home() {
                 </h2>
               </ScrollReveal>
 
-              {/* Pull-quote — large, serif italic */}
+              {/* Pull-quote -- large, serif italic */}
               <ScrollReveal direction="left" delay={300}>
                 <p className="font-serif italic text-[#B9AA9A] text-2xl md:text-3xl leading-relaxed border-l-2 border-[rgba(140,106,59,0.40)] pl-8">
                   Não vendemos apenas objectos &mdash;
@@ -353,60 +347,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ SERVICES ══════════════════════════════════════════════════════
-          Dark surface section. Numbered list rhythm — editorial, not SaaS.
-          No icons, no cards. Typography as the primary structural element.
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section id="servicos" className="py-24 md:py-32 bg-[#161210] border-t border-[rgba(232,222,210,0.08)]">
-        <div className="max-w-7xl mx-auto px-8 md:px-16">
+      {/* == SERVICES -- sticky parallax editorial reveal ======= */}
+      <StickyServices />
 
-          <ScrollReveal>
-            <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-6">
-              <div>
-                <span className="eyebrow">O que fazemos</span>
-                <h2 className="text-heading text-[#E8DED2] text-4xl md:text-5xl">
-                  Serviços Espirituais
-                </h2>
-              </div>
-              <Link href="/servicos" className="btn-text">
-                Todos os Serviços
-                <span className="arrow-line" />
-              </Link>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-            {SERVICES_PREVIEW.map((s, i) => (
-              <ScrollReveal key={s.name} delay={i * 90}>
-                <Link
-                  href={s.href}
-                  className="group block py-8 px-0 border-t border-[rgba(232,222,210,0.08)] hover:border-[rgba(140,106,59,0.30)] transition-colors duration-500 md:pr-16"
-                >
-                  <div className="flex items-start justify-between gap-8">
-                    <div>
-                      <span className="text-label text-[#7E7065] block mb-3">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="font-serif italic text-[#E8DED2] text-2xl mb-2 group-hover:text-[#8C6A3B] transition-colors duration-400">
-                        {s.name}
-                      </h3>
-                      <p className="text-label text-[#7E7065]">{s.note}</p>
-                    </div>
-                    <span className="material-symbols-outlined text-[#7E7065] group-hover:text-[#8C6A3B] transition-colors duration-400 mt-2 text-xl shrink-0">
-                      arrow_forward
-                    </span>
-                  </div>
-                </Link>
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══ TESTIMONIAL / QUOTE ═══════════════════════════════════════════
+      {/* == TESTIMONIAL / QUOTE ===================================
           Full-width dark section. Single large statement.
           Atmospheric, ceremonial. No rating stars, no avatars.
-      ═══════════════════════════════════════════════════════════════════ */}
+      ======================================================== */}
       <section className="py-24 md:py-40 bg-[#0E0B0A] border-t border-[rgba(232,222,210,0.08)]">
         <div className="max-w-5xl mx-auto px-8 md:px-16 text-center">
           <ScrollReveal direction="up">
@@ -425,9 +372,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ══ FOOTER ════════════════════════════════════════════════════════
-          Minimal, clean. Logo, links, and legal — nothing more.
-      ═══════════════════════════════════════════════════════════════════ */}
+      {/* == FOOTER ================================================
+          Minimal, clean. Logo, links, and legal -- nothing more.
+      ======================================================== */}
       <footer className="bg-[#0E0B0A] border-t border-[rgba(232,222,210,0.08)] pt-16 pb-10 px-8 md:px-16">
         <div className="max-w-7xl mx-auto">
 
