@@ -63,6 +63,14 @@ export default function RootLayout({
       lang="pt"
       className={`${cormorant.variable} ${manrope.variable} antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
+        />
+      </head>
       <body className="bg-[#0E0B0A] text-[#E8DED2] min-h-screen selection:bg-[#8C6A3B]/30 selection:text-[#E8DED2]">
         <SiteNav />
         <main className="pt-[58px]">

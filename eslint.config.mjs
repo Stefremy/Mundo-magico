@@ -13,6 +13,13 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  // App Router layout: allow <link> tags in <head> (rule targets Pages Router only)
+  {
+    files: ["src/app/layout.tsx"],
+    rules: {
+      "@next/next/no-page-custom-font": "off",
+    },
+  },
 ]);
 
 export default eslintConfig;
