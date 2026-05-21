@@ -110,9 +110,9 @@ export default function SiteFooter() {
             Mundo Mágico &copy; 2026
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-label text-[#4A4240] text-xs tracking-widest uppercase hover:text-[#7E7065] transition-colors duration-200">Privacidade</a>
-            <a href="#" className="text-label text-[#4A4240] text-xs tracking-widest uppercase hover:text-[#7E7065] transition-colors duration-200">Política de Cookies</a>
-            <a href="#" className="text-label text-[#4A4240] text-xs tracking-widest uppercase hover:text-[#7E7065] transition-colors duration-200">Termos &amp; Condições</a>
+            <Link href="/politica-privacidade" className="text-label text-[#4A4240] text-xs tracking-widest uppercase hover:text-[#7E7065] transition-colors duration-200">Privacidade</Link>
+            <Link href="/politica-cookies" className="text-label text-[#4A4240] text-xs tracking-widest uppercase hover:text-[#7E7065] transition-colors duration-200">Política de Cookies</Link>
+            <Link href="/termos-servico" className="text-label text-[#4A4240] text-xs tracking-widest uppercase hover:text-[#7E7065] transition-colors duration-200">Termos &amp; Condições</Link>
           </div>
         </div>
       </div>
