@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Termos de Serviço | Mundo Mágico",
   description:
     "Termos e condições de utilização dos serviços da Mundo Mágico, loja esotérica em Aveiro, Portugal.",
+  alternates: {
+    canonical: "/termos-servico",
+  },
 };
 
 const sections = [

@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Política de Cookies | Mundo Mágico",
   description:
     "Política de cookies da Mundo Mágico. Saiba que cookies utilizamos, para que servem e como os pode gerir.",
+  alternates: {
+    canonical: "/politica-cookies",
+  },
 };
 
 const cookieTypes = [

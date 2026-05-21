@@ -4,6 +4,8 @@ import "./globals.css";
 import SiteNav from "@/components/SiteNav";
 import SiteFooter from "@/components/SiteFooter";
 import CookieConsent from "@/components/CookieConsent";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -78,11 +80,14 @@ export default function RootLayout({
         />
       </head>
       <body className="bg-[#181310] text-[#EDE4D8] min-h-screen selection:bg-[#8C6A3B]/30 selection:text-[#EDE4D8]">
-        <SiteNav />
-        <main className="pt-[58px]">
-          {children}
-        </main>
-        <SiteFooter />
+        <CartProvider>
+          <SiteNav />
+          <main className="pt-[58px]">
+            {children}
+          </main>
+          <SiteFooter />
+          <CartDrawer />
+        </CartProvider>
         <CookieConsent />
       </body>
     </html>

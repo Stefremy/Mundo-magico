@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "mundo mágico serviços",
     "tarot online Aveiro",
   ],
+  alternates: {
+    canonical: "/servicos",
+  },
   openGraph: {
     title: "Serviços Místicos & Espirituais | Mundo Mágico",
     description:

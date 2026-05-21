@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useCart } from "@/context/CartContext";
 
 export default function SiteNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartCount, setIsCartOpen } = useCart();
 
   // Close mobile menu on route change
   const handleLinkClick = () => {
@@ -63,10 +65,16 @@ export default function SiteNav() {
         {/* Right — cart icon + CTA / Burger */}
         <div className="flex items-stretch">
           <button
+            onClick={() => setIsCartOpen(true)}
             aria-label="Carrinho"
-            className="flex items-center px-6 border-l border-[rgba(232,222,210,0.10)] text-white/80 hover:text-white hover:bg-[rgba(232,222,210,0.05)] transition-all duration-200"
+            className="flex items-center px-6 border-l border-[rgba(232,222,210,0.10)] text-white/80 hover:text-white hover:bg-[rgba(232,222,210,0.05)] transition-all duration-200 relative"
           >
             <span className="material-symbols-outlined text-[20px]">shopping_bag</span>
+            {cartCount > 0 && (
+              <span className="absolute top-[12px] right-[16px] bg-[#8C6A3B] text-black text-[9px] font-sans font-bold w-4 h-4 rounded-full flex items-center justify-center animate-fade-in">
+                {cartCount}
+              </span>
+            )}
           </button>
 
           {/* Desktop CTA */}
@@ -74,7 +82,7 @@ export default function SiteNav() {
             href="/servicos"
             className="hidden md:flex items-center gap-3 px-7 border-l border-[rgba(232,222,210,0.10)] bg-[#2D6A4F] hover:bg-[#3E8B62] text-white font-semibold font-sans uppercase tracking-[0.22em] text-[0.78rem] transition-all duration-300 group"
           >
-            CONSULTAR
+            MARCAR CONSULTA
             <span className="flex items-center justify-center w-6 h-6 bg-[rgba(255,255,255,0.15)] group-hover:bg-[rgba(255,255,255,0.22)] transition-colors duration-300">
               <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1 9L9 1M9 1H3M9 1V7" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -151,7 +159,7 @@ export default function SiteNav() {
               </p>
               <p className="flex items-center gap-2">
                 <span className="material-symbols-outlined text-[16px] text-[#8C6A3B]">schedule</span>
-                Segunda a Sexta: 10h - 19h | Sábado: 10h - 13h
+                Segunda a Sábado: 10h - 19h
               </p>
             </div>
           </div>

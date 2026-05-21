@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Política de Privacidade | Mundo Mágico",
   description:
     "Política de privacidade da Mundo Mágico. Saiba como tratamos os seus dados pessoais em conformidade com o RGPD.",
+  alternates: {
+    canonical: "/politica-privacidade",
+  },
 };
 
 const sections = [
