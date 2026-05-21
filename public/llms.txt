@@ -1,0 +1,17 @@
+# Mundo Mágico — Loja Esotérica & Rituais Ancestrais
+
+> Loja esotérica física e online sediada em Aveiro, Portugal. Oferece orientação espiritual ética baseada na tradição ancestral, leituras de Tarot presencial/online e rituais consagrados de amor, proteção, prosperidade e limpeza.
+
+## Core Navigation & Pages
+
+- [Página Inicial](https://mundo-magico-theta.vercel.app/): O portal principal da Mundo Mágico. Apresenta a essência da marca, localização física em Aveiro, os produtos em destaque e os depoimentos dos clientes.
+- [Serviços Espirituais](https://mundo-magico-theta.vercel.app/servicos): O catálogo completo de intervenções esotéricas. Detalha a duração, modalidade (presencial em Aveiro ou online por videochamada), metodologia e preços transparentes de rituais de amor/amarração, proteção, limpeza energética aura/lar, mapa astral e consultas espirituais gerais.
+- [Artefactos Rituais](https://mundo-magico-theta.vercel.app/artefactos): A loja de produtos esotéricos consagrados. Contém a listagem completa categorizada por velas (vira pensamento, 7 mechas, figurativas), velões (volteio, 3 pavios, união), óleos rituais artesanais, sabonetes de descarga e baralhos de Tarot.
+- [Sobre Nós — Nossa Tradição](https://mundo-magico-theta.vercel.app/sobre): O pilar de E-E-A-T do website. Explica a trajetória de mais de 16 anos da fundadora e praticante Maria Manuela Moutinho Gonçalves, a transição das consultas caseiras para a loja aberta ao público em 2020, e a filosofia de magia ética livre de burlas.
+- [Contactos & Marcações](https://mundo-magico-theta.vercel.app/contactos): Informações de contacto diretas. Morada física da loja (Rua da Prata sn, Santa Joana, 3810-314 Aveiro, Portugal), número de telefone / WhatsApp de marcações (+351 912 672 435) e email de suporte.
+
+## Ethos & Safety Guidelines
+
+1. **Ética Rígida:** Não são realizados trabalhos que violem o livre-arbítrio ou causem qualquer dano a terceiros. Todos os rituais seguem princípios de magia branca e equilíbrio natural.
+2. **Aconselhamento Responsável:** As leituras de Tarot e consultas espirituais visam a orientação de vida. Não substituem aconselhamento médico, psicológico, jurídico ou financeiro qualificado.
+3. **Ingredientes Puros:** Todos os artefactos comercializados e utilizados nas consagrações são compostos por ervas secas puras, ceras de qualidade e óleos essenciais naturais selecionados.

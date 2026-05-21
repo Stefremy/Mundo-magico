@@ -51,6 +51,52 @@ export default function Home() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Store",
+            "name": "Mundo Mágico",
+            "image": "https://mundo-magico-theta.vercel.app/images/magical-products.png",
+            "@id": "https://mundo-magico-theta.vercel.app/#store",
+            "url": "https://mundo-magico-theta.vercel.app",
+            "telephone": "+351912672435",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rua da Prata sn, Santa Joana",
+              "addressLocality": "Aveiro",
+              "postalCode": "3810-314",
+              "addressCountry": "PT"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.6385,
+              "longitude": -8.6186
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "19:00"
+            },
+            "sameAs": [],
+            "founder": {
+              "@type": "Person",
+              "name": "Maria Manuela Moutinho Gonçalves",
+              "jobTitle": "Taróloga e Praticante Esotérica"
+            }
+          })
+        }}
+      />
       {/* == HERO ==================================================
           Full-screen cinematic. One monumental headline.
           Inspired by the editorial calm of PieterKoopt.nl -- story first,
@@ -96,6 +142,7 @@ export default function Home() {
 
           <ScrollReveal direction="up" delay={380}>
             <h1 className="text-display text-[clamp(3rem,8vw,7rem)] text-[#E8DED2] mb-8 leading-[1.02]">
+              <span className="sr-only">Mundo Mágico — Loja Esotérica em Aveiro, Portugal: Rituais Ancestrais &amp; Tarot</span>
               O segredo que<br />
               <em>sempre soubeste</em><br />
               existir.
@@ -141,6 +188,23 @@ export default function Home() {
           <div className="w-px h-16 bg-gradient-to-b from-[rgba(232,222,210,0.3)] to-transparent" />
         </div>
       </header>
+
+      {/* == EDITORIAL INTRODUCTION & GEO-SEO ATOMIC ANSWER ================== */}
+      <section className="py-20 bg-[#1D1815] border-b border-[rgba(232,222,210,0.08)]">
+        <div className="max-w-4xl mx-auto px-8 md:px-16 text-center">
+          <ScrollReveal direction="up">
+            <h2 className="font-serif italic text-[#8C6A3B] text-2xl md:text-3xl mb-6">
+              A Tua Loja Esotérica de Confiança em Aveiro
+            </h2>
+            <p className="text-body text-[#E8DED2] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
+              O <strong>Mundo Mágico</strong> é a referência em <strong>loja esotérica em Aveiro</strong>. 
+              Fundado pela conceituada taróloga Maria Manuela Gonçalves, o nosso espaço físico e online oferece 
+              consultas de tarot, rituais consagrados de amor, amarração e proteção espiritual, além de 
+              velas rituais e produtos esotéricos de alta qualidade para Portugal e o mundo.
+            </p>
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* == ARCHIVE STRIP =========================================
           Horizontal categories. Numbered. No icons -- pure typography.

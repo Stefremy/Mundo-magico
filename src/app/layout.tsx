@@ -19,6 +19,10 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://mundo-magico-theta.vercel.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "Mundo Mágico — Loja Esotérica em Aveiro, Portugal",
     template: "%s | Mundo Mágico",

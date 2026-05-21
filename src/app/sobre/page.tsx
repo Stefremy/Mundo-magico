@@ -176,6 +176,33 @@ function TarotCard({ cat, index }: { cat: (typeof CATEGORIES)[0]; index: number 
 export default function SobrePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Maria Manuela Moutinho Gonçalves",
+            "jobTitle": "Taróloga e Praticante Esotérica",
+            "worksFor": {
+              "@type": "Store",
+              "name": "Mundo Mágico",
+              "url": "https://mundo-magico-theta.vercel.app"
+            },
+            "url": "https://mundo-magico-theta.vercel.app/sobre",
+            "image": "https://mundo-magico-theta.vercel.app/images/magic-products.png",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rua da Prata sn, Santa Joana",
+              "addressLocality": "Aveiro",
+              "postalCode": "3810-314",
+              "addressCountry": "PT"
+            },
+            "description": "Maria Manuela Moutinho Gonçalves é fundadora do Mundo Mágico, taróloga profissional e praticante esotérica em Aveiro com mais de 16 anos de experiência em orientação espiritual, cartomancia e rituais consagrados de magia branca.",
+            "sameAs": []
+          })
+        }}
+      />
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="relative pt-36 pb-24 px-8 md:px-16 overflow-hidden min-h-[440px] flex items-end border-b border-[rgba(232,222,210,0.08)]">
         {/* Parallax / cover image */}
@@ -224,10 +251,13 @@ export default function SobrePage() {
             {/* Story text */}
             <div className="md:col-span-7 space-y-8">
               <ScrollReveal direction="right">
-                <span className="eyebrow-accent">A Fundadora</span>
+                <span className="eyebrow-accent">A Fundadora &amp; Taróloga</span>
                 <h2 className="text-heading text-[#E8DED2] text-3xl md:text-5xl leading-tight">
                   Maria Manuela<br />Moutinho Gonçalves
                 </h2>
+                <p className="text-label text-[#8C6A3B] mt-2 font-medium tracking-wide">
+                  Taróloga Credível &amp; Praticante de Rituais Ancestrais em Aveiro
+                </p>
               </ScrollReveal>
 
               <ScrollReveal direction="right" delay={150}>

@@ -34,8 +34,8 @@ const SERVICES = [
   {
     id: "leitura-tarot",
     num: "01",
-    name: "Leitura de Tarot",
-    tagline: "Clareza para o teu caminho",
+    name: "Consulta de Tarot Aveiro",
+    tagline: "Clareza para o teu caminho — Presencial e Online",
     fullDesc:
       "O tarot é uma das ferramentas de autoconhecimento mais antigas do mundo ocidental. Cada tiragem é única e personalizada à tua situação — seja em amor, carreira, família ou espiritualidade. Utilizamos baralhos tradicionais de Marselha e Rider-Waite, lidos por praticantes com mais de 15 anos de experiência. A leitura é confidencial, respeitosa e sem julgamentos.",
     details: [
@@ -98,8 +98,8 @@ const SERVICES = [
   {
     id: "limpeza-energetica",
     num: "05",
-    name: "Limpeza Energética Pessoal",
-    tagline: "Renova a tua aura e dissolve bloqueios",
+    name: "Limpeza Espiritual Portugal",
+    tagline: "Renova a tua aura e dissolve bloqueios energéticos",
     fullDesc:
       "A limpeza energética pessoal é recomendada para quem sente cansaço inexplicável, má sorte persistente, sonhos perturbadores ou sensação de peso emocional constante. A sessão combina defumação com palo santo e ervas sagradas, passes de cristais de quartzo e ametista, e um banho ritual preparado com ervas específicas para a situação da pessoa.",
     details: [
@@ -181,7 +181,7 @@ export default function ServicosPage() {
             name: "Mundo Mágico",
             description:
               "Loja esotérica em Aveiro, Portugal especializada em artefactos rituais, leitura de tarot, rituais de amor, proteção e prosperidade.",
-            url: "https://mundomagico.pt",
+            url: "https://mundo-magico-theta.vercel.app",
             telephone: "+351912672435",
             address: {
               "@type": "PostalAddress",
@@ -198,6 +198,23 @@ export default function ServicosPage() {
                 itemOffered: { "@type": "Service", name: s.name },
               })),
             },
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": FAQS.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a,
+              },
+            })),
           }),
         }}
       />
