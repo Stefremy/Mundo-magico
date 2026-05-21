@@ -1,50 +1,33 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useState } from "react";
+import { PRODUCTS, CATEGORIES } from "@/lib/products";
 
-const PRODUCTS = [
-  { id: 1,  name: "Vela Ritual Vira Pensamento",      desc: "Influência e Clareza Mental",     price: "12,50 €", img: "/images/vela-vira-pensamento.jpeg", category: "Velas" },
-  { id: 2,  name: "Velão Mágico Volteio",              desc: "Retorno de Energias Negativas",   price: "15,00 €", img: "/images/velao-magico-volteio.jpeg", category: "Velões" },
-  { id: 3,  name: "Velas de Ritual Brancas",           desc: "Puras para Oração e Paz",         price: "8,00 €",  img: "/images/velas-ritual-brancas.jpeg", category: "Velas" },
-  { id: 4,  name: "Velão 3 Pavios — Corta Trabalhos",  desc: "Quebra de Bruxaria Pesada",       price: "18,00 €", img: "/images/velao-3-pavios-corta-trabalhos.jpeg", category: "Velões" },
-  { id: 5,  name: "Vela Ritual do Sol",                desc: "Atração de Dinheiro e Sucesso",   price: "9,90 €",  img: "/images/vela-ritual-sol.jpeg", category: "Velas" },
-  { id: 6,  name: "Vela Ritual Dualidade",             desc: "Equilíbrio e Justiça",            price: "10,50 €", img: "/images/vela-ritual-dualidade.jpeg", category: "Velas" },
-  { id: 7,  name: "Ritual 11 Mechas Caveira Vermelha", desc: "Ritual de Amor e Paixão",         price: "18,90 €", img: "/images/vela-11-mechas-caveira-vermelha.jpeg", category: "Velas" },
-  { id: 8,  name: "Vela Figurativa Casal Branco",      desc: "Paz e União Conjugal",            price: "10,00 €", img: "/images/vela-figurativa-casal-branco.jpeg", category: "Velas" },
-  { id: 9,  name: "Vela Tesoura de Ritual",            desc: "Corte de Laços e Energias",       price: "11,00 €", img: "/images/vela-tesoura-ritual.jpeg", category: "Velas" },
-  { id: 10, name: "Vela Figurativa Casa Branca",       desc: "Limpeza e Proteção do Lar",       price: "10,00 €", img: "/images/vela-figurativa-casa-branca.jpeg", category: "Velas" },
-  { id: 11, name: "Vela Figurativa Casal Mel",         desc: "Doçura e Encantamento no Amor",   price: "10,50 €", img: "/images/vela-figurativa-casal-mel.jpeg", category: "Velas" },
-  { id: 12, name: "Kit Ritual Impotência Máxima",      desc: "Inibição de Força Masculina",     price: "22,00 €", img: "/images/kit-ritual-impotencia-maxima.jpeg", category: "Kits Rituais" },
-  { id: 13, name: "Sabão Ritual Desata Nós",           desc: "Resolução de Problemas Difíceis", price: "7,50 €",  img: "/images/sabao-ritual-desata-nos.jpeg", category: "Sabonetes" },
-  { id: 14, name: "Sabonete Proteção Espiritual",      desc: "Escudo Energético Diário",        price: "6,90 €",  img: "/images/sabonete-protecao-espiritual.jpeg", category: "Sabonetes" },
-  { id: 15, name: "Kit Ritual És Só Para Mim",         desc: "Foco Absoluto no Amor",           price: "24,90 €", img: "/images/kit-ritual-es-so-para-mim.jpeg", category: "Kits Rituais" },
-  { id: 16, name: "Vela Ritual Zé Pelintra",           desc: "Abertura de Caminhos e Proteção", price: "12,00 €", img: "/images/vela-ritual-ze-pelintra.jpeg", category: "Velas" },
-  { id: 17, name: "Velão 7 Mechas Branco",             desc: "Limpeza Profunda e Desbloqueio",  price: "16,00 €", img: "/images/velao-7-mechas-branco.jpeg", category: "Velões" },
-  { id: 18, name: "Velão 7 Mechas Multicor",           desc: "Limpeza e Reequilíbrio Total",    price: "16,50 €", img: "/images/velao-7-mechas-multicor.jpeg", category: "Velões" },
-  { id: 19, name: "Velão 7 Mechas Preto",              desc: "Quebra Radical de Feitiços",      price: "16,00 €", img: "/images/velao-7-mechas-preto.jpeg", category: "Velões" },
-  { id: 20, name: "Vela Aromática Flor de Lótus e Calêndula", desc: "Equilíbrio, Paz e Proteção Espiritual", price: "14,50 €", img: "/images/vela-decorativa-flores.png", category: "Velas" },
-  { id: 21, name: "Baralho de Tarot Destiny",           desc: "Baralho Ricamente Ilustrado Detalhe Ouro", price: "28,00 €", img: "/images/tarot-destiny.png", category: "Tarot" },
-  { id: 22, name: "Velão Ritualístico União e Domínio",  desc: "Ervas e Resinas para Relações Firmes", price: "19,50 €", img: "/images/velao-uniao-dominio.png", category: "Velões" },
-  { id: 23, name: "Vela 7 Mechas Corda de Amarrar",     desc: "Desbloqueio e Libertação de Amarras", price: "17,00 €", img: "/images/vela-7-mechas-corda.png", category: "Velões" },
-  { id: 24, name: "Vela Figurativa Casal — União de Almas", desc: "Aproximação, Paixão e União Eterna", price: "12,90 €", img: "/images/vela-figurativa-casal.png", category: "Velas" },
-  { id: 25, name: "Vela Figurativa Caixão de Banimento", desc: "Quebra de Feitiço e Fim de Negatividade", price: "9,50 €", img: "/images/vela-figurativa-caixao.png", category: "Velas" },
-  { id: 26, name: "Conjunto de Velas Finas de Ritual",   desc: "Cromoterapia e Rituais Rápidos de Intensão", price: "8,50 €", img: "/images/velas-finas-ritual.png", category: "Velas" },
-  { id: 27, name: "Óleo de Ritual Pega e Não Larga",     desc: "Atração Amorosa Persistente e Conexão", price: "15,00 €", img: "/images/oleo-pega-nao-larga.png", category: "Óleos de Ritual" },
-  { id: 28, name: "Óleo de Ritual Limpeza e Purificação", desc: "Purificação da Aura e Escudo Espiritual", price: "15,00 €", img: "/images/oleo-limpeza-purificacao.png", category: "Óleos de Ritual" },
-  { id: 29, name: "Óleo de Ritual Quebra Macumba",       desc: "Destruição Imediata de Magia e Mau-olhado", price: "15,00 €", img: "/images/oleo-quebra-macumba.png", category: "Óleos de Ritual" },
-  { id: 30, name: "Óleo de Ritual Rutura e Separação",   desc: "Corte de Laços Nocivos e Rivalidades", price: "15,00 €", img: "/images/oleo-rutura-separacao.png", category: "Óleos de Ritual" },
-  { id: 31, name: "Óleo de Ritual Amansar",             desc: "Paz Familiar e Harmonia de Temperamentos", price: "15,00 €", img: "/images/oleo-amansar.png", category: "Óleos de Ritual" },
-  { id: 32, name: "Óleo de Ritual Afasta e Desaparece",   desc: "Afastamento de Pessoas Indesejadas", price: "15,00 €", img: "/images/oleo-afasta-desaparece.png", category: "Óleos de Ritual" },
-  { id: 33, name: "Óleo de Ritual Xangô",               desc: "Justiça Celestial, Poder e Vitória", price: "15,00 €", img: "/images/oleo-xango.png", category: "Óleos de Ritual" },
-  { id: 34, name: "Óleo de Ritual Maias",               desc: "Bloqueio de Inveja e Intrigas do Quotidiano", price: "15,00 €", img: "/images/oleo-maias.png", category: "Óleos de Ritual" },
-  { id: 35, name: "Óleo de Ritual Domínio",             desc: "Liderança, Poder e Domínio de Obstáculos", price: "15,00 €", img: "/images/oleo-dominio.png", category: "Óleos de Ritual" },
-  { id: 36, name: "Kit de Ritual de Alta Magia Suprema",  desc: "Kit Completo com Velas e Óleos de Poder", price: "35,00 €", img: "/images/kit-ritual-alta-magia.png", category: "Kits Rituais" },
-  { id: 37, name: "Dagida Feminina — Boneca de Pano de Ritual", desc: "Boneca Consagrada para Rituais de Intenção", price: "12,50 €", img: "/images/boneca-pano-dagida.png", category: "Acessórios" },
+const FAQS = [
+  {
+    q: "Os vossos artefactos são realmente consagrados e energeticamente limpos?",
+    a: "Sim. Todos os produtos — velas, velões, óleos, sabonetes e kits rituais — passam por um processo cuidadoso de descarga energética e consagração com intenção purificada por Maria Manuela Gonçalves antes de serem expostos ou enviados. Receberá um produto com energia limpa e alinhada.",
+  },
+  {
+    q: "Como devo escolher o artefacto certo para a minha situação?",
+    a: "Se não tiver a certeza qual produto é o mais indicado para a sua situação, pode contactar-nos gratuitamente via WhatsApp. Após uma breve descrição da sua situação, a Maria Manuela orientá-lo-á para o artefacto mais adequado, seja para amor, proteção, prosperidade ou limpeza energética.",
+  },
+  {
+    q: "Enviam para fora de Portugal? Qual o prazo e custo?",
+    a: "Sim. Enviamos para todo o território nacional (Continente e Ilhas) e para o estrangeiro, nomeadamente para comunidades portuguesas no mundo. O prazo de entrega é de 3 a 5 dias úteis. Para encomendas acima de 50 €, os portes são gratuitos em Portugal.",
+  },
+  {
+    q: "Os artefactos perdem a energia durante o transporte?",
+    a: "Não. Cada encomenda é embalada com intenção e protecção energética especial para manter a sua carga vibracional intacta durante o transporte. Os produtos chegam prontos a serem utilizados tal como foram consagrados.",
+  },
+  {
+    q: "Posso devolver ou trocar um produto?",
+    a: "Sim. Aceitamos devoluções no prazo de 14 dias úteis após a recepção da encomenda, desde que o produto esteja em perfeitas condições e na embalagem original. Produtos personalizados ou já utilizados não são reembolsáveis, salvo defeito de fabrico.",
+  },
 ];
-
-const CATEGORIES = ["Todos", "Velas", "Velões", "Óleos de Ritual", "Kits Rituais", "Sabonetes", "Tarot", "Acessórios"];
 
 export default function ArtefactosPage() {
   const [activeCategory, setActiveCategory] = useState("Todos");
@@ -55,7 +38,6 @@ export default function ArtefactosPage() {
 
   return (
     <>
-
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="relative pt-36 pb-24 px-8 md:px-16 overflow-hidden min-h-[420px] flex items-end border-b border-[rgba(232,222,210,0.08)]">
         {/* Background Image */}
@@ -79,6 +61,15 @@ export default function ArtefactosPage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
+          {/* Breadcrumbs */}
+          <ScrollReveal direction="down" delay={50}>
+            <nav className="text-xs font-sans tracking-wider text-[#A89885] flex items-center gap-2 mb-6 relative z-20" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-[#EDE4D8] transition-colors">Início</Link>
+              <span>/</span>
+              <span className="text-[#EDE4D8]/60 font-medium">Artefactos</span>
+            </nav>
+          </ScrollReveal>
+
           <ScrollReveal direction="up" delay={100}>
             <span className="eyebrow text-[#E8DED2]">Tesouros Consagrados</span>
           </ScrollReveal>
@@ -96,68 +87,134 @@ export default function ArtefactosPage() {
         </div>
       </header>
 
-      <main className="bg-[#F2EDE6] min-h-screen">
-        {/* ── FILTER STRIP ──────────────────────────────────────────── */}
-        <div className="max-w-7xl mx-auto px-8 md:px-16 pt-12 pb-8">
-          <div className="flex gap-2 flex-wrap">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2 text-[0.6rem] font-sans font-medium tracking-[0.2em] uppercase transition-all duration-300 border ${
-                  activeCategory === cat
-                    ? "bg-[#8C6A3B] border-[#8C6A3B] text-[#0E0B0A]"
-                    : "bg-transparent border-[rgba(29,24,21,0.2)] text-[#6B4E2D] hover:border-[#8C6A3B] hover:text-[#8C6A3B]"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+      <main>
+        {/* ── FILTER STRIP + PRODUCTS (light bg) ───────────────────── */}
+        <div className="bg-[#F2EDE6]">
+          <div className="max-w-7xl mx-auto px-8 md:px-16 pt-12 pb-8">
+            <div className="flex gap-2 flex-wrap">
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-5 py-2 text-[0.6rem] font-sans font-medium tracking-[0.2em] uppercase transition-all duration-300 border ${
+                    activeCategory === cat
+                      ? "bg-[#8C6A3B] border-[#8C6A3B] text-[#0E0B0A]"
+                      : "bg-transparent border-[rgba(29,24,21,0.2)] text-[#6B4E2D] hover:border-[#8C6A3B] hover:text-[#8C6A3B]"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* ── PRODUCTS GRID ───────────────────────────────────────── */}
+          <section className="max-w-7xl mx-auto px-8 md:px-16 pb-24">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-14">
+              {filteredProducts.map((product, i) => (
+                <ScrollReveal key={product.id} delay={(i % 4) * 90} direction="up">
+                  <Link href={`/artefactos/${product.slug}`} className="group block cursor-pointer">
+                    <article>
+                      <div className="relative aspect-[3/4] bg-[#E8E0D5] mb-5 overflow-hidden">
+                        <Image
+                          alt={product.name}
+                          src={product.img}
+                          fill
+                          className="object-contain p-6 transition-transform duration-700 group-hover:scale-[1.06]"
+                        />
+                        {product.badge && (
+                          <div className="absolute top-4 left-0 bg-[#8C6A3B] text-[#0E0B0A] text-[9px] font-sans font-semibold tracking-wider px-3 py-1 uppercase">
+                            {product.badge}
+                          </div>
+                        )}
+                      </div>
+                      <div className="space-y-1 px-1">
+                        <h2 className="font-serif italic text-[#1D1815] text-lg leading-snug group-hover:text-[#8C6A3B] transition-colors duration-300">
+                          {product.name}
+                        </h2>
+                        <p className="text-label text-sm" style={{ color: "#8C6A3B" }}>
+                          {product.shortDesc}
+                        </p>
+                        <p className="font-serif italic text-[#1D1815] text-base font-medium pt-1">
+                          {product.price}
+                        </p>
+                      </div>
+                    </article>
+                  </Link>
+                </ScrollReveal>
+              ))}
+            </div>
+
+            {/* Disclaimer */}
+            <ScrollReveal>
+              <div className="mt-20 pt-10 border-t border-[rgba(29,24,21,0.1)] max-w-2xl">
+                <p className="text-body text-sm text-[#8C7A6A] leading-relaxed italic">
+                  Todos os artefactos são preparados e consagrados segundo tradições ancestrais.
+                  Utilize sempre com intenção pura e respeito pelas leis universais.
+                  Para aconselhamento personalizado, consulte a nossa equipa.
+                </p>
+              </div>
+            </ScrollReveal>
+          </section>
         </div>
 
-        {/* ── PRODUCTS GRID ─────────────────────────────────────────── */}
-        <section className="max-w-7xl mx-auto px-8 md:px-16 pb-24">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-14">
-            {filteredProducts.map((product, i) => (
-              <ScrollReveal key={product.id} delay={(i % 4) * 90} direction="up">
-                <article className="group cursor-pointer">
-                  <div className="relative aspect-[3/4] bg-[#E8E0D5] mb-5 overflow-hidden">
-                    <Image
-                      alt={product.name}
-                      src={product.img}
-                      fill
-                      className="object-contain p-6 transition-transform duration-700 group-hover:scale-[1.06]"
-                    />
-                  </div>
-                  <div className="space-y-1 px-1">
-                    <h2 className="font-serif italic text-[#1D1815] text-lg leading-snug group-hover:text-[#6B4E2D] transition-colors duration-300">
-                      {product.name}
-                    </h2>
-                    <p className="text-label" style={{ color: "#8C6A3B" }}>
-                      {product.desc}
-                    </p>
-                    <p className="font-serif italic text-[#1D1815] text-base font-medium pt-1">
-                      {product.price}
-                    </p>
-                  </div>
-                </article>
+        {/* ── FAQ SECTION ────────────────────────────────────────────── */}
+        <section
+          className="py-24 md:py-32 bg-[#161210] border-t border-[rgba(232,222,210,0.08)]"
+          aria-label="Perguntas frequentes sobre artefactos"
+        >
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": FAQS.map((faq) => ({
+                  "@type": "Question",
+                  "name": faq.q,
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.a,
+                  },
+                })),
+              }),
+            }}
+          />
+          <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16">
+            <div className="md:col-span-4">
+              <ScrollReveal>
+                <span className="eyebrow">Dúvidas</span>
+                <h2 className="text-heading text-[#E8DED2] text-3xl md:text-4xl mt-3">
+                  Perguntas<br />frequentes
+                </h2>
+                <p className="text-body text-sm text-[#A89885] leading-relaxed mt-4 max-w-[36ch]">
+                  Tudo o que precisa de saber sobre os nossos artefactos consagrados, envios e garantias.
+                </p>
+                <div className="mt-8">
+                  <Link
+                    href="/contactos"
+                    className="inline-flex items-center gap-2 text-xs font-sans font-medium tracking-[0.2em] uppercase text-[#8C6A3B] hover:text-[#EDE4D8] transition-colors duration-300"
+                  >
+                    Falar connosco
+                    <span className="w-8 h-px bg-current inline-block" />
+                  </Link>
+                </div>
               </ScrollReveal>
-            ))}
-          </div>
-
-          {/* Disclaimer */}
-          <ScrollReveal>
-            <div className="mt-20 pt-10 border-t border-[rgba(29,24,21,0.1)] max-w-2xl">
-              <p className="text-body text-sm text-[#8C7A6A] leading-relaxed italic">
-                Todos os artefactos são preparados e consagrados segundo tradições ancestrais.
-                Utilize sempre com intenção pura e respeito pelas leis universais.
-                Para aconselhamento personalizado, consulte a nossa equipa.
-              </p>
             </div>
-          </ScrollReveal>
+            <div className="md:col-span-8">
+              {FAQS.map((faq, i) => (
+                <ScrollReveal key={i} delay={i * 80}>
+                  <div className="py-8 border-t border-[rgba(232,222,210,0.08)] first:border-t-0">
+                    <h3 className="font-serif italic text-[#E8DED2] text-lg mb-3">{faq.q}</h3>
+                    <p className="text-body text-sm leading-relaxed text-[#A89885]">{faq.a}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
         </section>
       </main>
     </>
   );
 }
+

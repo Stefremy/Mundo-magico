@@ -1,8 +1,27 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import { useState } from "react";
+
+const FAQS = [
+  {
+    q: "Como funcionam as consultas presenciais em Aveiro?",
+    a: "As consultas presenciais decorrem no nosso espaço físico em Aveiro. Oferecem um ambiente reservado e calmo de foco total e escuta ativa. É necessário agendamento prévio por telefone ou WhatsApp.",
+  },
+  {
+    q: "Posso realizar uma consulta se estiver fora de Aveiro ou no estrangeiro?",
+    a: "Sim. Oferecemos consultas online completas via videochamada (WhatsApp, Zoom ou Meet) com a mesma precisão e eficácia das sessões presenciais.",
+  },
+  {
+    q: "Onde fica localizada a loja física e existe estacionamento?",
+    a: "Estamos localizados na Rua da Prata sn, em Santa Joana, Aveiro. A zona oferece estacionamento público gratuito e fácil acesso para a sua conveniência.",
+  },
+  {
+    q: "Quais são os métodos de pagamento aceites?",
+    a: "Para sua comodidade, aceitamos MB Way, Cartão de Crédito, Transferência Bancária, PayPal ou dinheiro em consultas presenciais.",
+  },
+];
 
 export default function ContactosPage() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "", submitted: false });
@@ -14,10 +33,36 @@ export default function ContactosPage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": FAQS.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a,
+              },
+            })),
+          }),
+        }}
+      />
 
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
         <div className="max-w-7xl mx-auto">
+          {/* Breadcrumbs */}
+          <ScrollReveal direction="down" delay={50}>
+            <nav className="text-xs font-sans tracking-wider text-[#7E7065] flex items-center gap-2 mb-6 relative z-20" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-[#EDE4D8] transition-colors">Início</Link>
+              <span>/</span>
+              <span className="text-[#8C6A3B] font-medium">Contactos</span>
+            </nav>
+          </ScrollReveal>
+
           <ScrollReveal direction="up" delay={100}>
             <span className="eyebrow">Fala connosco</span>
           </ScrollReveal>
@@ -195,8 +240,35 @@ export default function ContactosPage() {
           </div>
         </section>
 
+        {/* ── FAQ SECTION ───────────────────────────────────────────── */}
+        <section
+          className="py-24 md:py-32 bg-[#161210] border-t border-[rgba(232,222,210,0.08)]"
+          aria-label="Perguntas frequentes"
+        >
+          <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16">
+            <div className="md:col-span-4">
+              <ScrollReveal>
+                <span className="eyebrow">Dúvidas</span>
+                <h2 className="text-heading text-[#E8DED2] text-3xl md:text-4xl">
+                  Perguntas<br />frequentes
+                </h2>
+              </ScrollReveal>
+            </div>
+            <div className="md:col-span-8">
+              {FAQS.map((faq, i) => (
+                <ScrollReveal key={i} delay={i * 80}>
+                  <div className="py-8 border-t border-[rgba(232,222,210,0.08)] first:border-t-0">
+                    <h3 className="font-serif italic text-[#E8DED2] text-lg mb-3">{faq.q}</h3>
+                    <p className="text-body text-sm leading-relaxed text-[#A89885]">{faq.a}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── PULL QUOTE ────────────────────────────────────────────── */}
-        <section className="py-24 md:py-32 px-8 md:px-16 bg-[#161210]">
+        <section className="py-24 md:py-32 px-8 md:px-16 bg-[#0E0B0A]">
           <div className="max-w-4xl mx-auto text-center">
             <ScrollReveal direction="up">
               <blockquote className="font-serif italic text-[#E8DED2] text-2xl md:text-3xl lg:text-4xl leading-relaxed">

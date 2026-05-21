@@ -43,6 +43,21 @@ const CATEGORIES = [
   },
 ];
 
+const FAQS = [
+  {
+    q: "O que é o Mundo Mágico e qual a sua origem?",
+    a: "O Mundo Mágico é um espaço esotérico de referência em Aveiro, fundado em 2020 por Maria Manuela Gonçalves. O projeto surgiu após mais de 16 anos de atendimento privado e dedicação sincera à espiritualidade, cartomancia e aconselhamento holístico.",
+  },
+  {
+    q: "Como são preparados e consagrados os produtos do vosso catálogo?",
+    a: "Todos os nossos artefactos rituais (velas, velões, óleos e preparados de ervas) passam por um cuidadoso processo de limpeza energética (descarga) e consagração com intenção purificada por Maria Manuela Gonçalves antes de serem expostos ou enviados.",
+  },
+  {
+    q: "Qual é a vossa missão e ética espiritual?",
+    a: "A nossa missão é ajudar quem nos procura a superar bloqueios de amor, dinheiro, saúde ou família, partilhando orientação clara. Pautamo-nos pela magia de intenção pura (magia branca), respeitando integralmente o livre-arbítrio e a confidencialidade de cada consulente.",
+  },
+];
+
 // Bidirectional scroll-aware tarot card
 function TarotCard({ cat, index }: { cat: (typeof CATEGORIES)[0]; index: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -203,6 +218,23 @@ export default function SobrePage() {
           })
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": FAQS.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a,
+              },
+            })),
+          }),
+        }}
+      />
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="relative pt-36 pb-24 px-8 md:px-16 overflow-hidden min-h-[440px] flex items-end border-b border-[rgba(232,222,210,0.08)]">
         {/* Parallax / cover image */}
@@ -226,6 +258,15 @@ export default function SobrePage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10 w-full">
+          {/* Breadcrumbs */}
+          <ScrollReveal direction="down" delay={50}>
+            <nav className="text-xs font-sans tracking-wider text-[#A89885] flex items-center gap-2 mb-6 relative z-20" aria-label="Breadcrumb">
+              <Link href="/" className="hover:text-[#EDE4D8] transition-colors">Início</Link>
+              <span>/</span>
+              <span className="text-[#EDE4D8]/60 font-medium">Sobre</span>
+            </nav>
+          </ScrollReveal>
+
           <ScrollReveal direction="up" delay={100}>
             <span className="eyebrow text-[#E8DED2]">A Nossa História</span>
           </ScrollReveal>
@@ -389,8 +430,35 @@ export default function SobrePage() {
           </div>
         </section>
 
+        {/* ── FAQ SECTION ───────────────────────────────────────────── */}
+        <section
+          className="py-24 md:py-32 bg-[#161210] border-b border-[rgba(232,222,210,0.08)]"
+          aria-label="Perguntas frequentes"
+        >
+          <div className="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 md:grid-cols-12 gap-16">
+            <div className="md:col-span-4">
+              <ScrollReveal>
+                <span className="eyebrow">Dúvidas</span>
+                <h2 className="text-heading text-[#E8DED2] text-3xl md:text-4xl">
+                  Perguntas<br />frequentes
+                </h2>
+              </ScrollReveal>
+            </div>
+            <div className="md:col-span-8">
+              {FAQS.map((faq, i) => (
+                <ScrollReveal key={i} delay={i * 80}>
+                  <div className="py-8 border-t border-[rgba(232,222,210,0.08)] first:border-t-0">
+                    <h3 className="font-serif italic text-[#E8DED2] text-lg mb-3">{faq.q}</h3>
+                    <p className="text-body text-sm leading-relaxed text-[#A89885]">{faq.a}</p>
+                  </div>
+                </ScrollReveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── SHIPPING & TERMS DETAIL GRID ───────────────────────────── */}
-        <section className="py-24 md:py-32 px-8 md:px-16 bg-[#161210]">
+        <section className="py-24 md:py-32 px-8 md:px-16 bg-[#0E0B0A]">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
               

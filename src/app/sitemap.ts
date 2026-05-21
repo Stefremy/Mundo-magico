@@ -1,9 +1,10 @@
 import { MetadataRoute } from "next";
+import { PRODUCTS } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://mundo-magico-theta.vercel.app";
 
-  const routes = [
+  const staticRoutes = [
     { url: "", changeFrequency: "daily" as const, priority: 1.0 },
     { url: "/servicos", changeFrequency: "weekly" as const, priority: 0.9 },
     { url: "/artefactos", changeFrequency: "weekly" as const, priority: 0.9 },
@@ -14,7 +15,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/termos-servico", changeFrequency: "monthly" as const, priority: 0.3 },
   ];
 
-  return routes.map((route) => ({
+  const productRoutes = PRODUCTS.map((product) => ({
+    url: `/artefactos/${product.slug}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  const allRoutes = [...staticRoutes, ...productRoutes];
+
+  return allRoutes.map((route) => ({
     url: `${baseUrl}${route.url}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,

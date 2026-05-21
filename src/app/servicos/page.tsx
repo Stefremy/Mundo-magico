@@ -222,6 +222,13 @@ export default function ServicosPage() {
       {/* ── PAGE HERO ────────────────────────────────────────────────── */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
         <div className="max-w-7xl mx-auto">
+          {/* Breadcrumbs */}
+          <nav className="text-xs font-sans tracking-wider text-[#7E7065] flex items-center gap-2 mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-[#EDE4D8] transition-colors">Início</Link>
+            <span>/</span>
+            <span className="text-[#8C6A3B] font-medium">Serviços</span>
+          </nav>
+
           <ScrollReveal direction="up" delay={100}>
             <span className="eyebrow">O que fazemos</span>
           </ScrollReveal>
