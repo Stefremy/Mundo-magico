@@ -274,9 +274,9 @@ export default function Home() {
               A Tua Loja Esotérica de Confiança em Aveiro
             </h2>
             <p className="text-body text-[#E8DED2] text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
-              O <strong>Mundo Mágico</strong> é a referência em <strong>loja esotérica em Aveiro</strong>. 
-              Fundado pela conceituada taróloga Maria Manuela Gonçalves, o nosso espaço físico e online oferece 
-              consultas de tarot, rituais consagrados de amor, amarração e proteção espiritual, além de 
+              O <strong>Mundo Mágico</strong> é a referência em <strong>loja esotérica em Aveiro</strong>.
+              Fundado pela conceituada taróloga Maria Manuela Gonçalves, o nosso espaço físico e online oferece
+              consultas de tarot, rituais consagrados de amor, amarração e proteção espiritual, além de
               velas rituais e produtos esotéricos de alta qualidade para Portugal e o mundo.
             </p>
           </ScrollReveal>
@@ -428,12 +428,12 @@ export default function Home() {
                   <p>
                     No Mundo Mágico, acreditamos que a verdadeira magia reside nos pequenos gestos.
                     As nossas velas figurativas de mel para adoçar o coração, os sabonetes artesanais para
-                    desatar nós difíceis e os velões consagrados são preparados manualmente, com ingredientes puros, 
+                    desatar nós difíceis e os velões consagrados são preparados manualmente, com ingredientes puros,
                     respeito pelas leis universais e a energia mais elevada.
                   </p>
                   <p>
                     Acender uma mecha, purificar o teu espaço ou concentrar a tua mente num ritual
-                    são formas doces e poderosas de cuidares de ti, de ouvires a tua própria intuição e de 
+                    são formas doces e poderosas de cuidares de ti, de ouvires a tua própria intuição e de
                     manifestares os teus desejos mais profundos.
                   </p>
                 </div>

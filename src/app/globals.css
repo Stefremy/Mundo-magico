@@ -7,68 +7,80 @@
   ============================================================ */
 
   /* -- Surfaces (warm shadowed darks, never flat black) -------- */
-  --color-base:       #181310;   /* primary canvas — lifted from pure black */
-  --color-base-alt:   #201A17;   /* secondary bg */
-  --color-surface:    #272018;   /* card / panel surfaces */
-  --color-surface-hi: #302820;   /* elevated surface */
-  --color-surface-xhi:#3A302A;   /* tooltip / popover */
+  --color-base: #181310;
+  /* primary canvas — lifted from pure black */
+  --color-base-alt: #201A17;
+  /* secondary bg */
+  --color-surface: #272018;
+  /* card / panel surfaces */
+  --color-surface-hi: #302820;
+  /* elevated surface */
+  --color-surface-xhi: #3A302A;
+  /* tooltip / popover */
 
   /* -- Text (aged ivory scale) --------------------------------- */
-  --color-text:       #EDE4D8;   /* primary text — slightly warmer */
-  --color-text-muted: #C8BAA8;   /* body copy — brighter for readability */
-  --color-text-faint: #9A8C7E;   /* captions, metadata — lifted */
+  --color-text: #EDE4D8;
+  /* primary text — slightly warmer */
+  --color-text-muted: #C8BAA8;
+  /* body copy — brighter for readability */
+  --color-text-faint: #9A8C7E;
+  /* captions, metadata — lifted */
 
   /* -- Bronze accent (main) ------------------------------------ */
-  --color-accent:     #8C6A3B;
-  --color-accent-hi:  #A47A43;
-  --color-accent-lo:  #6B4E2D;
+  --color-accent: #8C6A3B;
+  --color-accent-hi: #A47A43;
+  --color-accent-lo: #6B4E2D;
 
   /* -- Olive accent (secondary, sparse) ------------------------ */
-  --color-olive:      #4E5A46;
+  --color-olive: #4E5A46;
 
   /* -- Blood-wine accent (rare highlight only) ----------------- */
-  --color-wine:       #5C2B31;
+  --color-wine: #5C2B31;
 
   /* -- Borders / dividers ------------------------------------- */
-  --color-border:     rgba(232, 222, 210, 0.10);
-  --color-border-hi:  rgba(232, 222, 210, 0.18);
+  --color-border: rgba(232, 222, 210, 0.10);
+  --color-border-hi: rgba(232, 222, 210, 0.18);
   --color-border-accent: rgba(140, 106, 59, 0.35);
 
   /* -- Typography --------------------------------------------- */
-  --font-serif: var(--font-serif);   /* Cormorant Garamond */
-  --font-sans:  var(--font-sans);    /* Manrope */
+  --font-serif: var(--font-serif);
+  /* Cormorant Garamond */
+  --font-sans: var(--font-sans);
+  /* Manrope */
 
   /* Aliases kept for backwards compat with old Tailwind classes */
-  --color-primary:               #8C6A3B;
-  --color-on-primary:            #0E0B0A;
-  --color-secondary:             #4E5A46;
-  --color-background:            #181310;
-  --color-on-surface:            #EDE4D8;
-  --color-on-surface-variant:    #C8BAA8;
-  --color-outline-variant:       rgba(237, 228, 216, 0.10);
+  --color-primary: #8C6A3B;
+  --color-on-primary: #0E0B0A;
+  --color-secondary: #4E5A46;
+  --color-background: #181310;
+  --color-on-surface: #EDE4D8;
+  --color-on-surface-variant: #C8BAA8;
+  --color-outline-variant: rgba(237, 228, 216, 0.10);
 }
 
 /* ============================================================
    BASE
 ============================================================ */
 @layer base {
+
   /* ── Semantic tokens (consumed by utility classes below) ─── */
   :root {
-    --bg-main:        #181310;
-    --bg-warm:        #EDE4D8;
-    --surface-dark:   #201A17;
-    --text-main:      #EDE4D8;
-    --text-sub:       #C8BAA8;
-    --text-muted:     #9A8C7E;
-    --accent:         #8C6A3B;
-    --accent-hi:      #A47A43;
-    --border-soft:    rgba(237, 228, 216, 0.14);
-    --hover-overlay:  rgba(140, 106, 59, 0.10);
+    --bg-main: #181310;
+    --bg-warm: #EDE4D8;
+    --surface-dark: #201A17;
+    --text-main: #EDE4D8;
+    --text-sub: #C8BAA8;
+    --text-muted: #9A8C7E;
+    --accent: #8C6A3B;
+    --accent-hi: #A47A43;
+    --border-soft: rgba(237, 228, 216, 0.14);
+    --hover-overlay: rgba(140, 106, 59, 0.10);
   }
 
   html {
     scroll-behavior: smooth;
-    font-size: 17px; /* bumped from 16px — everything scales up proportionally */
+    font-size: 17px;
+    /* bumped from 16px — everything scales up proportionally */
   }
 
   body {
@@ -86,6 +98,7 @@
     color: var(--text-main);
     transition: color .4s ease, background-color .4s ease, border-color .4s ease;
   }
+
   a:hover,
   .text-link:hover {
     color: var(--accent);
@@ -117,8 +130,13 @@
 @layer utilities {
 
   /* --- Typography utilities --- */
-  .font-serif  { font-family: var(--font-serif); }
-  .font-sans   { font-family: var(--font-sans); }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
+  }
 
   /* Ceremonial display — hero headlines */
   .text-display {
@@ -140,7 +158,8 @@
   /* Archive label — eyebrow / metadata */
   .text-label {
     font-family: var(--font-sans);
-    font-size: 0.7rem;       /* was 0.625rem */
+    font-size: 0.7rem;
+    /* was 0.625rem */
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
@@ -150,10 +169,12 @@
   /* Body text */
   .text-body {
     font-family: var(--font-sans);
-    font-size: 1rem;         /* explicit — scales with 17px root */
+    font-size: 1rem;
+    /* explicit — scales with 17px root */
     font-weight: 300;
     line-height: 1.80;
-    color: var(--text-sub);  /* #C8BAA8 — brighter than old #B9AA9A */
+    color: var(--text-sub);
+    /* #C8BAA8 — brighter than old #B9AA9A */
   }
 
   /* --- Surfaces --- */
@@ -161,6 +182,7 @@
     background-color: #1D1815;
     border: 1px solid rgba(232, 222, 210, 0.10);
   }
+
   .surface-hi {
     background-color: #26201C;
     border: 1px solid rgba(232, 222, 210, 0.10);
@@ -179,6 +201,7 @@
     background: transparent;
     transition: background 600ms ease, border-color 600ms ease;
   }
+
   .nav-bar.scrolled {
     background: rgba(14, 11, 10, 0.92);
     backdrop-filter: blur(20px);
@@ -220,6 +243,7 @@
     cursor: pointer;
     transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease;
   }
+
   .btn-bronze:hover {
     background-color: #ffffff;
     border-color: #ffffff;
@@ -244,6 +268,7 @@
     cursor: pointer;
     transition: color 400ms ease, border-color 400ms ease, background 400ms ease;
   }
+
   .btn-ghost:hover {
     color: #E8DED2;
     border-color: rgba(140, 106, 59, 0.9);
@@ -267,7 +292,11 @@
     padding: 0;
     transition: color 300ms ease;
   }
-  .btn-text:hover { color: #A47A43; }
+
+  .btn-text:hover {
+    color: #A47A43;
+  }
+
   .btn-text .arrow-line {
     display: block;
     width: 2.5rem;
@@ -275,13 +304,17 @@
     background-color: rgba(140, 106, 59, 0.45);
     transition: width 500ms ease;
   }
-  .btn-text:hover .arrow-line { width: 4.5rem; }
+
+  .btn-text:hover .arrow-line {
+    width: 4.5rem;
+  }
 
   /* --- Image treatments --- */
   .img-archival {
     filter: sepia(20%) brightness(0.78) contrast(1.05);
     transition: filter 800ms ease;
   }
+
   .img-archival:hover {
     filter: sepia(10%) brightness(0.85) contrast(1.02);
   }
@@ -294,7 +327,8 @@
   /* --- Archive eyebrow label --- */
   .eyebrow {
     font-family: var(--font-sans);
-    font-size: 0.7rem;       /* was 0.625rem */
+    font-size: 0.7rem;
+    /* was 0.625rem */
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -306,7 +340,8 @@
   /* Bronze tinted eyebrow */
   .eyebrow-accent {
     font-family: var(--font-sans);
-    font-size: 0.7rem;       /* was 0.625rem */
+    font-size: 0.7rem;
+    /* was 0.625rem */
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
@@ -331,8 +366,9 @@
     opacity: 0;
     transform: translateY(28px);
     transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
-                transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+      transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
   }
+
   .reveal-hidden.revealed {
     opacity: 1;
     transform: translateY(0);
@@ -355,6 +391,7 @@
     background: transparent;
     transition: all .4s ease;
   }
+
   .nav-button:hover,
   .outline-button:hover {
     background: var(--hover-overlay);
@@ -366,6 +403,7 @@
     background: var(--surface-dark);
     color: var(--bg-warm);
   }
+
   .dark-section a:hover {
     color: var(--accent);
   }

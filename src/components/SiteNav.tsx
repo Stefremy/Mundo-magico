@@ -35,7 +35,7 @@ export default function SiteNav() {
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full bg-[#0E0B0A]/95 backdrop-blur-lg border-b border-[rgba(232,222,210,0.12)] flex items-stretch h-[58px]">
+      <nav className="fixed top-0 z-50 w-full bg-[#0E0B0A]/95 backdrop-blur-lg border-b border-[rgba(232,222,210,0.12)] flex items-stretch h-[58px] overflow-hidden">
         {/* Brand */}
         <Link
           href="/"
@@ -60,10 +60,10 @@ export default function SiteNav() {
         </div>
 
         {/* Spacer on mobile */}
-        <div className="flex-1 md:hidden" />
+        <div className="flex-1 min-w-0 md:hidden" />
 
         {/* Right — cart icon + CTA / Burger */}
-        <div className="flex items-stretch">
+        <div className="flex items-stretch shrink-0">
           <button
             onClick={() => setIsCartOpen(true)}
             aria-label="Carrinho"
