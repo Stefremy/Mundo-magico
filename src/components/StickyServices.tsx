@@ -76,14 +76,12 @@ export default function StickyServices() {
   return (
     <section
       ref={sectionRef}
-      className="relative z-10 bg-[#0E0B0A]"
-      style={{ height: `${(SERVICES.length + 1) * 100}vh` }}
+      className="relative z-10 bg-[#0E0B0A] h-auto md:h-[500vh]"
       aria-label="Os nossos servicos"
     >
       {/* Sticky viewport frame */}
       <div
-        className="sticky w-full overflow-hidden flex items-center z-10"
-        style={{ top: "58px", height: "calc(100vh - 58px)" }}
+        className="relative md:sticky w-full overflow-visible md:overflow-hidden flex items-center z-10 h-auto md:h-[calc(100vh-58px)] top-0 md:top-[58px]"
       >
         {/* Background Image -- sintra gogh.png with rich dark vignette overlay */}
         <div className="absolute inset-0 z-0 opacity-70 pointer-events-none select-none">
@@ -202,7 +200,7 @@ export default function StickyServices() {
         </div>
 
         {/* Mobile -- simple stacked list */}
-        <div className="relative z-10 md:hidden flex flex-col gap-6 px-8 py-12 overflow-y-auto h-full w-full">
+        <div className="relative z-10 md:hidden flex flex-col gap-6 px-8 py-16 w-full h-auto">
           {SERVICES.map((svc) => (
             <div key={svc.num} className="border border-[rgba(232,222,210,0.10)] p-6 rounded-sm">
               <div className="flex items-center justify-between mb-3">
