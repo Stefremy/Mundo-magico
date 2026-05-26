@@ -184,7 +184,7 @@ export default function ServicosPage() {
             name: "Mundo Mágico",
             description:
               "Loja esotérica em Aveiro, Portugal especializada em artefactos rituais, leitura de tarot, rituais de amor, proteção e prosperidade.",
-            url: "https://mundo-magico-theta.vercel.app",
+            url: "https://www.lojamundomagico.pt",
             telephone: "+351912672435",
             address: {
               "@type": "PostalAddress",
@@ -233,13 +233,13 @@ export default function ServicosPage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Início",
-                "item": "https://mundo-magico-theta.vercel.app"
+                "item": "https://www.lojamundomagico.pt"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Serviços",
-                "item": "https://mundo-magico-theta.vercel.app/servicos"
+                "item": "https://www.lojamundomagico.pt/servicos"
               }
             ]
           }),

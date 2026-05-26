@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sobre Nós & Tradição Esotérica — Mundo Mágico",
     description: "Conheça Maria Manuela Gonçalves, taróloga e fundadora do Mundo Mágico em Aveiro com mais de 16 anos de experiência em orientação espiritual.",
-    url: "https://mundo-magico-theta.vercel.app/sobre",
+    url: "https://www.lojamundomagico.pt/sobre",
   },
 };
 

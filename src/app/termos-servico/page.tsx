@@ -138,12 +138,12 @@ export default function TermosServicoPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": "https://mundo-magico-theta.vercel.app/termos-servico/#webpage",
-            "url": "https://mundo-magico-theta.vercel.app/termos-servico",
+            "@id": "https://www.lojamundomagico.pt/termos-servico/#webpage",
+            "url": "https://www.lojamundomagico.pt/termos-servico",
             "name": "Termos de Serviço | Mundo Mágico",
             "description": "Termos e condições de utilização dos serviços da Mundo Mágico, loja esotérica em Aveiro, Portugal.",
             "isPartOf": {
-              "@id": "https://mundo-magico-theta.vercel.app/#website"
+              "@id": "https://www.lojamundomagico.pt/#website"
             },
             "breadcrumb": {
               "@context": "https://schema.org",
@@ -153,13 +153,13 @@ export default function TermosServicoPage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Início",
-                  "item": "https://mundo-magico-theta.vercel.app"
+                  "item": "https://www.lojamundomagico.pt"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Termos de Serviço",
-                  "item": "https://mundo-magico-theta.vercel.app/termos-servico"
+                  "item": "https://www.lojamundomagico.pt/termos-servico"
                 }
               ]
             }

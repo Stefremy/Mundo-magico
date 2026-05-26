@@ -46,12 +46,12 @@ export default function ArtefactosPage() {
             "@context": "https://schema.org",
             "@type": "ItemList",
             "name": "Loja de Artefactos Rituais & Produtos Esotéricos",
-            "url": "https://mundo-magico-theta.vercel.app/artefactos",
+            "url": "https://www.lojamundomagico.pt/artefactos",
             "numberOfItems": PRODUCTS.length,
             "itemListElement": PRODUCTS.map((product, index) => ({
               "@type": "ListItem",
               "position": index + 1,
-              "url": `https://mundo-magico-theta.vercel.app/artefactos/${product.slug}`
+              "url": `https://www.lojamundomagico.pt/artefactos/${product.slug}`
             }))
           })
         }}
@@ -68,13 +68,13 @@ export default function ArtefactosPage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Início",
-                "item": "https://mundo-magico-theta.vercel.app"
+                "item": "https://www.lojamundomagico.pt"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Artefactos",
-                "item": "https://mundo-magico-theta.vercel.app/artefactos"
+                "item": "https://www.lojamundomagico.pt/artefactos"
               }
             ]
           })

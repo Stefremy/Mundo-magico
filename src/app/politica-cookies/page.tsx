@@ -118,12 +118,12 @@ export default function PoliticaCookiesPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": "https://mundo-magico-theta.vercel.app/politica-cookies/#webpage",
-            "url": "https://mundo-magico-theta.vercel.app/politica-cookies",
+            "@id": "https://www.lojamundomagico.pt/politica-cookies/#webpage",
+            "url": "https://www.lojamundomagico.pt/politica-cookies",
             "name": "Política de Cookies | Mundo Mágico",
             "description": "Política de cookies da Mundo Mágico. Saiba que cookies utilizamos, para que servem e como os pode gerir.",
             "isPartOf": {
-              "@id": "https://mundo-magico-theta.vercel.app/#website"
+              "@id": "https://www.lojamundomagico.pt/#website"
             },
             "breadcrumb": {
               "@context": "https://schema.org",
@@ -133,13 +133,13 @@ export default function PoliticaCookiesPage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Início",
-                  "item": "https://mundo-magico-theta.vercel.app"
+                  "item": "https://www.lojamundomagico.pt"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Política de Cookies",
-                  "item": "https://mundo-magico-theta.vercel.app/politica-cookies"
+                  "item": "https://www.lojamundomagico.pt/politica-cookies"
                 }
               ]
             }

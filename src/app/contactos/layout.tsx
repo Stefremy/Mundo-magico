@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Contactos & Marcações — Mundo Mágico",
     description: "Marque a sua consulta de Tarot presencial em Aveiro ou Online. Contacte o Mundo Mágico via WhatsApp, telefone ou visite-nos.",
-    url: "https://mundo-magico-theta.vercel.app/contactos",
+    url: "https://www.lojamundomagico.pt/contactos",
   },
 };
 

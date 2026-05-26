@@ -202,10 +202,10 @@ export default function SobrePage() {
             "worksFor": {
               "@type": "Store",
               "name": "Mundo Mágico",
-              "url": "https://mundo-magico-theta.vercel.app"
+              "url": "https://www.lojamundomagico.pt"
             },
-            "url": "https://mundo-magico-theta.vercel.app/sobre",
-            "image": "https://mundo-magico-theta.vercel.app/images/magic-products.png",
+            "url": "https://www.lojamundomagico.pt/sobre",
+            "image": "https://www.lojamundomagico.pt/images/magic-products.png",
             "address": {
               "@type": "PostalAddress",
               "streetAddress": "Rua da Prata sn, Santa Joana",
@@ -247,13 +247,13 @@ export default function SobrePage() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Início",
-                "item": "https://mundo-magico-theta.vercel.app"
+                "item": "https://www.lojamundomagico.pt"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Sobre Nós",
-                "item": "https://mundo-magico-theta.vercel.app/sobre"
+                "item": "https://www.lojamundomagico.pt/sobre"
               }
             ]
           })

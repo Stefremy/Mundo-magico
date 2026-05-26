@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = "https://mundo-magico-theta.vercel.app";
+  const baseUrl = "https://www.lojamundomagico.pt";
 
   return {
     rules: {

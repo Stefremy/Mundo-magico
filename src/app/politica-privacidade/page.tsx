@@ -111,12 +111,12 @@ export default function PoliticaPrivacidadePage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "@id": "https://mundo-magico-theta.vercel.app/politica-privacidade/#webpage",
-            "url": "https://mundo-magico-theta.vercel.app/politica-privacidade",
+            "@id": "https://www.lojamundomagico.pt/politica-privacidade/#webpage",
+            "url": "https://www.lojamundomagico.pt/politica-privacidade",
             "name": "Política de Privacidade | Mundo Mágico",
             "description": "Política de privacidade da Mundo Mágico. Saiba como tratamos os seus dados pessoais em conformidade com o RGPD.",
             "isPartOf": {
-              "@id": "https://mundo-magico-theta.vercel.app/#website"
+              "@id": "https://www.lojamundomagico.pt/#website"
             },
             "breadcrumb": {
               "@context": "https://schema.org",
@@ -126,13 +126,13 @@ export default function PoliticaPrivacidadePage() {
                   "@type": "ListItem",
                   "position": 1,
                   "name": "Início",
-                  "item": "https://mundo-magico-theta.vercel.app"
+                  "item": "https://www.lojamundomagico.pt"
                 },
                 {
                   "@type": "ListItem",
                   "position": 2,
                   "name": "Política de Privacidade",
-                  "item": "https://mundo-magico-theta.vercel.app/politica-privacidade"
+                  "item": "https://www.lojamundomagico.pt/politica-privacidade"
                 }
               ]
             }

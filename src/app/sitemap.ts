@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { PRODUCTS } from "@/lib/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://mundo-magico-theta.vercel.app";
+  const baseUrl = "https://www.lojamundomagico.pt";
 
   const staticRoutes = [
     { url: "", changeFrequency: "daily" as const, priority: 1.0 },

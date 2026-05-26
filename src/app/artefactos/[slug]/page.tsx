@@ -81,7 +81,7 @@ export default async function ProductDetailPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
-    "image": `https://mundo-magico-theta.vercel.app${product.img}`,
+    "image": `https://www.lojamundomagico.pt${product.img}`,
     "description": product.shortDesc,
     "sku": `MM-${product.id}`,
     "brand": {
@@ -90,7 +90,7 @@ export default async function ProductDetailPage({ params }: Props) {
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://mundo-magico-theta.vercel.app/artefactos/${product.slug}`,
+      "url": `https://www.lojamundomagico.pt/artefactos/${product.slug}`,
       "priceCurrency": "EUR",
       "price": product.priceNum,
       "priceValidUntil": "2027-12-31",
@@ -118,19 +118,19 @@ export default async function ProductDetailPage({ params }: Props) {
         "@type": "ListItem",
         "position": 1,
         "name": "Início",
-        "item": "https://mundo-magico-theta.vercel.app"
+        "item": "https://www.lojamundomagico.pt"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Artefactos",
-        "item": "https://mundo-magico-theta.vercel.app/artefactos"
+        "item": "https://www.lojamundomagico.pt/artefactos"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": product.name,
-        "item": `https://mundo-magico-theta.vercel.app/artefactos/${product.slug}`
+        "item": `https://www.lojamundomagico.pt/artefactos/${product.slug}`
       }
     ]
   };

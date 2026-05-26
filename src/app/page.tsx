@@ -58,9 +58,9 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Store",
             "name": "Mundo Mágico",
-            "image": "https://mundo-magico-theta.vercel.app/images/magical-products.png",
-            "@id": "https://mundo-magico-theta.vercel.app/#store",
-            "url": "https://mundo-magico-theta.vercel.app",
+            "image": "https://www.lojamundomagico.pt/images/magical-products.png",
+            "@id": "https://www.lojamundomagico.pt/#store",
+            "url": "https://www.lojamundomagico.pt",
             "telephone": "+351912672435",
             "priceRange": "$$",
             "address": {
@@ -106,10 +106,10 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "@id": "https://mundo-magico-theta.vercel.app/#org",
+            "@id": "https://www.lojamundomagico.pt/#org",
             "name": "Mundo Mágico",
-            "url": "https://mundo-magico-theta.vercel.app",
-            "logo": "https://mundo-magico-theta.vercel.app/icon.png",
+            "url": "https://www.lojamundomagico.pt",
+            "logo": "https://www.lojamundomagico.pt/icon.png",
             "description": "Loja esotérica de referência em Aveiro, Portugal. Artefactos rituais consagrados, velas, cristais, tarot e serviços espirituais de amor, proteção e prosperidade.",
             "telephone": "+351912672435",
             "email": "borboleta_mariana18@hotmail.com",
@@ -145,12 +145,12 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            "@id": "https://mundo-magico-theta.vercel.app/#website",
+            "@id": "https://www.lojamundomagico.pt/#website",
             "name": "Mundo Mágico",
-            "url": "https://mundo-magico-theta.vercel.app",
+            "url": "https://www.lojamundomagico.pt",
             "description": "Loja esotérica em Aveiro, Portugal — artefactos rituais, velas, cristais, tarot e serviços espirituais.",
             "publisher": {
-              "@id": "https://mundo-magico-theta.vercel.app/#org"
+              "@id": "https://www.lojamundomagico.pt/#org"
             },
             "inLanguage": "pt-PT"
           })
@@ -168,7 +168,7 @@ export default function Home() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Início",
-                "item": "https://mundo-magico-theta.vercel.app"
+                "item": "https://www.lojamundomagico.pt"
               }
             ]
           })

@@ -22,7 +22,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mundo-magico-theta.vercel.app"),
+  metadataBase: new URL("https://www.lojamundomagico.pt"),
   alternates: {
     canonical: "/",
   },

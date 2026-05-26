@@ -57,15 +57,15 @@ export default function ContactosPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ContactPage",
-            "@id": "https://mundo-magico-theta.vercel.app/contactos/#webpage",
-            "url": "https://mundo-magico-theta.vercel.app/contactos",
+            "@id": "https://www.lojamundomagico.pt/contactos/#webpage",
+            "url": "https://www.lojamundomagico.pt/contactos",
             "name": "Contactos & Marcações — Mundo Mágico",
             "description": "Marque a sua consulta de Tarot presencial em Aveiro ou Online. Contacte o Mundo Mágico via WhatsApp, telefone ou visite-nos.",
             "isPartOf": {
-              "@id": "https://mundo-magico-theta.vercel.app/#website"
+              "@id": "https://www.lojamundomagico.pt/#website"
             },
             "breadcrumb": {
-              "@id": "https://mundo-magico-theta.vercel.app/contactos/#breadcrumb"
+              "@id": "https://www.lojamundomagico.pt/contactos/#breadcrumb"
             }
           })
         }}
@@ -77,10 +77,10 @@ export default function ContactosPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://mundo-magico-theta.vercel.app/#store",
+            "@id": "https://www.lojamundomagico.pt/#store",
             "name": "Mundo Mágico",
-            "image": "https://mundo-magico-theta.vercel.app/images/magical-products.png",
-            "url": "https://mundo-magico-theta.vercel.app",
+            "image": "https://www.lojamundomagico.pt/images/magical-products.png",
+            "url": "https://www.lojamundomagico.pt",
             "telephone": "+351912672435",
             "email": "borboleta_mariana18@hotmail.com",
             "priceRange": "$$",
@@ -119,19 +119,19 @@ export default function ContactosPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "@id": "https://mundo-magico-theta.vercel.app/contactos/#breadcrumb",
+            "@id": "https://www.lojamundomagico.pt/contactos/#breadcrumb",
             "itemListElement": [
               {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Início",
-                "item": "https://mundo-magico-theta.vercel.app"
+                "item": "https://www.lojamundomagico.pt"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Contactos",
-                "item": "https://mundo-magico-theta.vercel.app/contactos"
+                "item": "https://www.lojamundomagico.pt/contactos"
               }
             ]
           })
