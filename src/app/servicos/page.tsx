@@ -221,6 +221,30 @@ export default function ServicosPage() {
           }),
         }}
       />
+      {/* BreadcrumbList — Serviços */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://mundo-magico-theta.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Serviços",
+                "item": "https://mundo-magico-theta.vercel.app/servicos"
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* ── PAGE HERO ────────────────────────────────────────────────── */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">

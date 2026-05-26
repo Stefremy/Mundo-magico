@@ -111,6 +111,41 @@ A retirada do consentimento não afeta a licitude do tratamento efetuado com bas
 export default function PoliticaCookiesPage() {
   return (
     <>
+      {/* WebPage & BreadcrumbList Schema — Cookies */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://mundo-magico-theta.vercel.app/politica-cookies/#webpage",
+            "url": "https://mundo-magico-theta.vercel.app/politica-cookies",
+            "name": "Política de Cookies | Mundo Mágico",
+            "description": "Política de cookies da Mundo Mágico. Saiba que cookies utilizamos, para que servem e como os pode gerir.",
+            "isPartOf": {
+              "@id": "https://mundo-magico-theta.vercel.app/#website"
+            },
+            "breadcrumb": {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Início",
+                  "item": "https://mundo-magico-theta.vercel.app"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Política de Cookies",
+                  "item": "https://mundo-magico-theta.vercel.app/politica-cookies"
+                }
+              ]
+            }
+          })
+        }}
+      />
       {/* PAGE HERO */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
         <div className="max-w-4xl mx-auto">

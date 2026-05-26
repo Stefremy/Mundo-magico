@@ -110,12 +110,41 @@ export default async function ProductDetailPage({ params }: Props) {
     }
   };
 
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://mundo-magico-theta.vercel.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Artefactos",
+        "item": "https://mundo-magico-theta.vercel.app/artefactos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": product.name,
+        "item": `https://mundo-magico-theta.vercel.app/artefactos/${product.slug}`
+      }
+    ]
+  };
+
   return (
     <>
       {/* Insert JSON-LD into the head */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
 
       <main className="bg-[#F2EDE6] text-[#1D1815] min-h-screen pt-28 pb-24">

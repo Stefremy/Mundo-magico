@@ -131,6 +131,41 @@ Sem prejuízo do acima exposto, o foro competente é o Tribunal da Comarca de Av
 export default function TermosServicoPage() {
   return (
     <>
+      {/* WebPage & BreadcrumbList Schema — Terms */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://mundo-magico-theta.vercel.app/termos-servico/#webpage",
+            "url": "https://mundo-magico-theta.vercel.app/termos-servico",
+            "name": "Termos de Serviço | Mundo Mágico",
+            "description": "Termos e condições de utilização dos serviços da Mundo Mágico, loja esotérica em Aveiro, Portugal.",
+            "isPartOf": {
+              "@id": "https://mundo-magico-theta.vercel.app/#website"
+            },
+            "breadcrumb": {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Início",
+                  "item": "https://mundo-magico-theta.vercel.app"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Termos de Serviço",
+                  "item": "https://mundo-magico-theta.vercel.app/termos-servico"
+                }
+              ]
+            }
+          })
+        }}
+      />
       {/* PAGE HERO */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
         <div className="max-w-4xl mx-auto">

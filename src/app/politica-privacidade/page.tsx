@@ -104,6 +104,41 @@ Tem ainda o direito de apresentar reclamação à autoridade de controlo compete
 export default function PoliticaPrivacidadePage() {
   return (
     <>
+      {/* WebPage & BreadcrumbList Schema — Privacy */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": "https://mundo-magico-theta.vercel.app/politica-privacidade/#webpage",
+            "url": "https://mundo-magico-theta.vercel.app/politica-privacidade",
+            "name": "Política de Privacidade | Mundo Mágico",
+            "description": "Política de privacidade da Mundo Mágico. Saiba como tratamos os seus dados pessoais em conformidade com o RGPD.",
+            "isPartOf": {
+              "@id": "https://mundo-magico-theta.vercel.app/#website"
+            },
+            "breadcrumb": {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Início",
+                  "item": "https://mundo-magico-theta.vercel.app"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Política de Privacidade",
+                  "item": "https://mundo-magico-theta.vercel.app/politica-privacidade"
+                }
+              ]
+            }
+          })
+        }}
+      />
       {/* PAGE HERO */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">
         <div className="max-w-4xl mx-auto">

@@ -88,12 +88,89 @@ export default function Home() {
               "opens": "10:00",
               "closes": "19:00"
             },
-            "sameAs": [],
+            "sameAs": [
+              "https://www.facebook.com/share/v/1CEd3RzpGz/"
+            ],
             "founder": {
               "@type": "Person",
               "name": "Maria Manuela Moutinho Gonçalves",
               "jobTitle": "Taróloga e Praticante Esotérica"
             }
+          })
+        }}
+      />
+      {/* Organization schema for Knowledge Panel */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://mundo-magico-theta.vercel.app/#org",
+            "name": "Mundo Mágico",
+            "url": "https://mundo-magico-theta.vercel.app",
+            "logo": "https://mundo-magico-theta.vercel.app/icon.png",
+            "description": "Loja esotérica de referência em Aveiro, Portugal. Artefactos rituais consagrados, velas, cristais, tarot e serviços espirituais de amor, proteção e prosperidade.",
+            "telephone": "+351912672435",
+            "email": "borboleta_mariana18@hotmail.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rua da Prata sn, Santa Joana",
+              "addressLocality": "Aveiro",
+              "postalCode": "3810-314",
+              "addressRegion": "Aveiro",
+              "addressCountry": "PT"
+            },
+            "sameAs": [
+              "https://www.facebook.com/share/v/1CEd3RzpGz/"
+            ],
+            "founder": {
+              "@type": "Person",
+              "name": "Maria Manuela Moutinho Gonçalves"
+            },
+            "foundingDate": "2020",
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+351912672435",
+              "contactType": "customer service",
+              "availableLanguage": ["Portuguese", "English"]
+            }
+          })
+        }}
+      />
+      {/* WebSite schema for sitelinks search */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://mundo-magico-theta.vercel.app/#website",
+            "name": "Mundo Mágico",
+            "url": "https://mundo-magico-theta.vercel.app",
+            "description": "Loja esotérica em Aveiro, Portugal — artefactos rituais, velas, cristais, tarot e serviços espirituais.",
+            "publisher": {
+              "@id": "https://mundo-magico-theta.vercel.app/#org"
+            },
+            "inLanguage": "pt-PT"
+          })
+        }}
+      />
+      {/* BreadcrumbList — Home */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://mundo-magico-theta.vercel.app"
+              }
+            ]
           })
         }}
       />

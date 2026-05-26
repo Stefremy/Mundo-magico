@@ -50,6 +50,93 @@ export default function ContactosPage() {
           }),
         }}
       />
+      {/* ContactPage Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "@id": "https://mundo-magico-theta.vercel.app/contactos/#webpage",
+            "url": "https://mundo-magico-theta.vercel.app/contactos",
+            "name": "Contactos & Marcações — Mundo Mágico",
+            "description": "Marque a sua consulta de Tarot presencial em Aveiro ou Online. Contacte o Mundo Mágico via WhatsApp, telefone ou visite-nos.",
+            "isPartOf": {
+              "@id": "https://mundo-magico-theta.vercel.app/#website"
+            },
+            "breadcrumb": {
+              "@id": "https://mundo-magico-theta.vercel.app/contactos/#breadcrumb"
+            }
+          })
+        }}
+      />
+      {/* LocalBusiness Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://mundo-magico-theta.vercel.app/#store",
+            "name": "Mundo Mágico",
+            "image": "https://mundo-magico-theta.vercel.app/images/magical-products.png",
+            "url": "https://mundo-magico-theta.vercel.app",
+            "telephone": "+351912672435",
+            "email": "borboleta_mariana18@hotmail.com",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Rua da Prata sn, Santa Joana",
+              "addressLocality": "Aveiro",
+              "postalCode": "3810-314",
+              "addressCountry": "PT"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 40.6385,
+              "longitude": -8.6186
+            },
+            "openingHoursSpecification": {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+              ],
+              "opens": "10:00",
+              "closes": "19:00"
+            }
+          })
+        }}
+      />
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://mundo-magico-theta.vercel.app/contactos/#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://mundo-magico-theta.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Contactos",
+                "item": "https://mundo-magico-theta.vercel.app/contactos"
+              }
+            ]
+          })
+        }}
+      />
 
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="pt-32 pb-24 px-8 md:px-16 bg-[#0E0B0A] border-b border-[rgba(232,222,210,0.08)]">

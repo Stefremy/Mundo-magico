@@ -38,6 +38,48 @@ export default function ArtefactosPage() {
 
   return (
     <>
+      {/* ItemList Schema — All products */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Loja de Artefactos Rituais & Produtos Esotéricos",
+            "url": "https://mundo-magico-theta.vercel.app/artefactos",
+            "numberOfItems": PRODUCTS.length,
+            "itemListElement": PRODUCTS.map((product, index) => ({
+              "@type": "ListItem",
+              "position": index + 1,
+              "url": `https://mundo-magico-theta.vercel.app/artefactos/${product.slug}`
+            }))
+          })
+        }}
+      />
+      {/* BreadcrumbList — Artefactos */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://mundo-magico-theta.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Artefactos",
+                "item": "https://mundo-magico-theta.vercel.app/artefactos"
+              }
+            ]
+          })
+        }}
+      />
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="relative pt-36 pb-24 px-8 md:px-16 overflow-hidden min-h-[420px] flex items-end border-b border-[rgba(232,222,210,0.08)]">
         {/* Background Image */}

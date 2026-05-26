@@ -235,6 +235,30 @@ export default function SobrePage() {
           }),
         }}
       />
+      {/* BreadcrumbList — Sobre */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Início",
+                "item": "https://mundo-magico-theta.vercel.app"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Sobre Nós",
+                "item": "https://mundo-magico-theta.vercel.app/sobre"
+              }
+            ]
+          })
+        }}
+      />
       {/* ── PAGE HERO ─────────────────────────────────────────────── */}
       <header className="relative pt-36 pb-24 px-8 md:px-16 overflow-hidden min-h-[440px] flex items-end border-b border-[rgba(232,222,210,0.08)]">
         {/* Parallax / cover image */}
