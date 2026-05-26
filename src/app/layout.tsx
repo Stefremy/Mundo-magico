@@ -6,6 +6,7 @@ import SiteFooter from "@/components/SiteFooter";
 import CookieConsent from "@/components/CookieConsent";
 import { CartProvider } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
+import Script from "next/script";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-serif",
@@ -78,6 +79,19 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0&display=swap"
         />
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-M5FR15KYR6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-M5FR15KYR6');
+          `}
+        </Script>
       </head>
       <body className="bg-[#181310] text-[#EDE4D8] min-h-screen selection:bg-[#8C6A3B]/30 selection:text-[#EDE4D8]">
         <CartProvider>
